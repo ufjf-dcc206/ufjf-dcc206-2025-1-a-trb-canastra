@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc main.ts",
+    "build": "tsc src/main.ts",
     "preview": "vite preview",
     "test": "vitest",
     "index": "ts-node-dev -respawn -transpile-only main.ts"
