@@ -30,8 +30,7 @@ class Carta {
 }
 function criarBaralho() {
   const naipes: Naipe[] = ["copas", "paus", "espadas", "ouros"];
-  const valores: Valor[] = [
-    "1",
+  const valores: Valor[] = [  
     "2",
     "3",
     "4",
@@ -70,10 +69,11 @@ function embaralhar(baralho: Carta[]): Carta[] {
 function pegarCarta(baralho: Carta[], vezes: number): Carta[] {
   let mao: Carta[] = [];
   for (let i = 0; i < vezes; i++) {
-    let cartapegada: Carta = baralho.pop();
-    mao.push(cartapegada);
+    const cartaPegada = baralho.pop();
+    if (cartaPegada) {
+      mao.push(cartaPegada);
+    }
   }
-
   return mao;
 }
 
@@ -81,5 +81,5 @@ let baralho = criarBaralho();
 console.log("Baralho original:", baralho);
 let baralhoEmbaralhado = embaralhar(baralho);
 console.log("Baralho embaralhado:", baralhoEmbaralhado);
-let mao = pegarCarta(baralhoEmbaralhado, 4);
+let mao = pegarCarta(baralhoEmbaralhado, 8);
 console.log("mao do jogador:", mao);
