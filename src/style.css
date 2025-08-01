@@ -1,0 +1,44 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "balatro";
+  src: url(recursos/FonteBalatro.ttf);
+}
+* {
+  font-family: "balatro", monospace;
+}
+
+body {
+  background-color: rgb(81, 2, 2);
+  color: white;
+}
+#CartaTitulo {
+  margin: 0px;
+  padding: 0;
+  border: 0px;
+  text-align: center;
+  display: inline-block;
+}
+#CartaTitulo > img {
+  height: 200px;
+}
+.botoes {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  justify-content: center;
+}
+.botoes > a:first-child {
+  background-color: aqua;
+}
+.botoes > a:nth-child(2) {
+  background-color: rgb(253, 3, 3);
+}
+.botoes > a {
+  color: white;
+  padding: 15px 30px; /* Aumenta o espaço interno para o botão ficar maior */
+  text-align: center;
+  text-decoration: none;
+  font-size: 5em;
+  border-radius: 8px;
+  box-shadow: inset 0px -20px 20px 0px rgba(0, 0, 0, 0.1);
+}

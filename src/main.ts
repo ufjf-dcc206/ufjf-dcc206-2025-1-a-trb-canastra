@@ -56,9 +56,9 @@ function criarBaralho() {
 }
 
 function embaralhar(baralho: Carta[]): Carta[] {
-  let novoBaralho = [...baralho];//copiando so para ter controle do normal x embaralhado
+  let novoBaralho = [...baralho]; //copiando so para ter controle do normal x embaralhado(mexer dps)
   for (let i = novoBaralho.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1)); 
+    const j = Math.floor(Math.random() * (i + 1));
     /* a math random pega numero 
     de 0 a 1 e multiplica pelo indice + 1 e
      em seguida esse numero é arredondado para o
@@ -70,10 +70,10 @@ function embaralhar(baralho: Carta[]): Carta[] {
 function pegarCarta(baralho: Carta[], vezes: number): Carta[] {
   let mao: Carta[] = [];
   for (let i = 0; i < vezes; i++) {
-    let cartapegada:Carta = baralho.pop();
-      mao.push(cartapegada);
-    }
-  
+    let cartapegada: Carta = baralho.pop();
+    mao.push(cartapegada);
+  }
+
   return mao;
 }
 
@@ -81,5 +81,5 @@ let baralho = criarBaralho();
 console.log("Baralho original:", baralho);
 let baralhoEmbaralhado = embaralhar(baralho);
 console.log("Baralho embaralhado:", baralhoEmbaralhado);
-let mao = pegarCarta(baralhoEmbaralhado,4);
-console.log("mao do jogador:",mao);
+let mao = pegarCarta(baralhoEmbaralhado, 4);
+console.log("mao do jogador:", mao);
