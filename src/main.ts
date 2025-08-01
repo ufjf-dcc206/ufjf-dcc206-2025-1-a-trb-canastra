@@ -1,8 +1,22 @@
-import './style.css'; //Pra usar os estilos de forma global 
+import "./style.css"; //Pra usar os estilos de forma global
 
 //definindo os "tipos" de naipes e valores de carta que podem ter com |
 type Naipe = "copas" | "paus" | "espadas" | "ouros";
-type Valor = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "J" | "Q" | "K"| "A";
+type Valor =
+  | "1"
+  | "2"
+  | "3"
+  | "4"
+  | "5"
+  | "6"
+  | "7"
+  | "8"
+  | "9"
+  | "10"
+  | "J"
+  | "Q"
+  | "K"
+  | "A";
 
 //criando a classe da carta de forma geral, que vai construir cada carta de acordo com o naipe e a figura
 class Carta {
@@ -16,7 +30,22 @@ class Carta {
 }
 function criarBaralho() {
   const naipes: Naipe[] = ["copas", "paus", "espadas", "ouros"];
-  const valores: Valor[] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
+  const valores: Valor[] = [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "J",
+    "Q",
+    "K",
+    "A",
+  ];
   let baralho = [];
   for (const naipe of naipes) {
     for (const valor of valores) {
@@ -27,16 +56,16 @@ function criarBaralho() {
 }
 
 function embaralhar(baralho: Carta[]): Carta[] {
-    // Loop em todos os elementos
-    let novoBaralho = [...baralho];
-    for (let i = novoBaralho.length - 1; i > 0; i--) {
-        // Escolhendo elemento aleatório
-        const j = Math.floor(Math.random() * (i + 1));
-        // Reposicionando elemento
-        [novoBaralho[i], novoBaralho[j]] = [novoBaralho[j], novoBaralho[i]];
-    }
-    // Retornando novoBaralho com aleatoriedade
-    return novoBaralho;
+  let novoBaralho = [...baralho];//copiando so para ter controle do normal x embaralhado
+  for (let i = novoBaralho.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1)); 
+    /* a math random pega numero 
+    de 0 a 1 e multiplica pelo indice + 1 e
+     em seguida esse numero é arredondado para o
+    inteiro mais proximo pela math.flor*/
+    [novoBaralho[i], novoBaralho[j]] = [novoBaralho[j], novoBaralho[i]];
+  }
+  return novoBaralho;
 }
 let baralho = criarBaralho();
 console.log("Baralho original:", baralho);
