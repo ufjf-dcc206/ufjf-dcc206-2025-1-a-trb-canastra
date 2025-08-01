@@ -67,7 +67,19 @@ function embaralhar(baralho: Carta[]): Carta[] {
   }
   return novoBaralho;
 }
+function pegarCarta(baralho: Carta[], vezes: number): Carta[] {
+  let mao: Carta[] = [];
+  for (let i = 0; i < vezes; i++) {
+    let cartapegada:Carta = baralho.pop();
+      mao.push(cartapegada);
+    }
+  
+  return mao;
+}
+
 let baralho = criarBaralho();
 console.log("Baralho original:", baralho);
 let baralhoEmbaralhado = embaralhar(baralho);
 console.log("Baralho embaralhado:", baralhoEmbaralhado);
+let mao = pegarCarta(baralhoEmbaralhado,4);
+console.log("mao do jogador:",mao);
