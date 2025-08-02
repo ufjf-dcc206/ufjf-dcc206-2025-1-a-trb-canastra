@@ -78,8 +78,7 @@ function pegarCarta(baralho: Carta[], vezes: number): Carta[] {
 }
 
 let baralho = criarBaralho();
-console.log("Baralho original:", baralho);
-let baralhoEmbaralhado = embaralhar(baralho);
-console.log("Baralho embaralhado:", baralhoEmbaralhado);
-let mao = pegarCarta(baralhoEmbaralhado, 8);
+baralho = embaralhar(baralho);
+console.log("Baralho embaralhado:", baralho);
+let mao = pegarCarta(baralho, 8);
 console.log("mao do jogador:", mao);
