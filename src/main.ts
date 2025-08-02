@@ -17,7 +17,7 @@ type Valor =
   | "Q"
   | "K"
   | "A";
-
+  const maocarta = document.getElementById('Cartas');
 //criando a classe da carta de forma geral, que vai construir cada carta de acordo com o naipe e a figura
 class Carta {
   naipe: Naipe;
@@ -76,9 +76,43 @@ function pegarCarta(baralho: Carta[], vezes: number): Carta[] {
   }
   return mao;
 }
+function selecionar(carta: HTMLElement) {
+  const nmr = document.querySelectorAll('.selecionada');
+  if (nmr.length === 5 && !carta.classList.contains('selecionada')) {
+    carta.style.animation = 'none';
+    // Força o reflow para reiniciar a animação
+    void carta.offsetWidth;
+    carta.style.animation = 'negado 2s';
+  } else {
+    carta.classList.toggle('selecionada');
+  }
+}
+
+function renderiza(mao: Carta[]): void {
+  for (let i = 0; i < mao.length; i++) {
+    const carta = document.createElement('div');
+    carta.classList.add('carta');
+    carta.innerHTML = `<img src="src/recursos/Cartas Grandes/${mao[i].valor}-${mao[i].naipe}.png" alt="">`;
+    carta.onclick = () => selecionar(carta);
+    maocarta.appendChild(carta);
+  }
+}
+
+//nao funciona tem arrumar
+function cartasSelecionadas(mao: Carta[]): Carta[] {
+  const selecionadas: Carta[] = [];
+  const cartasDivs = document.querySelectorAll('.carta');
+  cartasDivs.forEach((div, i) => {
+    if (div.classList.contains('selecionada')) {
+      selecionadas.push(mao[i]);
+    }
+  });
+  return selecionadas;
+}
 
 let baralho = criarBaralho();
 baralho = embaralhar(baralho);
 console.log("Baralho embaralhado:", baralho);
 let mao = pegarCarta(baralho, 8);
 console.log("mao do jogador:", mao);
+renderiza(mao);
