@@ -27,8 +27,8 @@
       <div id="Cartas">
       </div>
       <div class="caixabotoes" style="gap: 50px;">
-        <input class="botoes-partida" type="button" value="JOGAR" onclick="jogacarta()">
-        <input class="botoes-partida" type="button" value="Descartar" onclick="descarta()">
+        <input class="botoes-partida" type="button" value="JOGAR" id="botaojoga">
+        <input class="botoes-partida" type="button" value="DESCARTAR" id="botaodescarta">
       </div>
     </div>
     <div id="BaralhoVirado">
@@ -36,8 +36,10 @@
       <span id="contaCartas">52</span>
     </div>
     <div id="menu-container">
+      <div id="menu-divisao">
       <a href="index.html" id="menu">MENU</a>
-      <!-- Outros conteúdos futuros aqui -->
+      <div id="pontoMeta" value="50"> 50</div>
+      <div id="seuponto" value="0"> 0</div>
     </div>
     <script type="module" src="src/main.ts"></script>
   </body>

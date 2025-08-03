@@ -29,23 +29,22 @@ img {
 #BaralhoVirado {
   position: absolute;
   bottom: 20px;
-  width: 100px;
-  height: 120px;
+  width: 128px;
+  height: 128px;
   right: 20px;
   display: flex;
 }
 #BaralhoVirado > img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: contain; /* para a imagem preencher toda a div*/
 }
 #contaCartas {
-  position: absolute;
-  top: 0px;
-  right: 0%;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  font-size: 1em;
+position: relative;
+  top: 39px;
+  right: 62%;
+  color: rgb(245, 7, 7);
+  font-size: 2em;
   padding: 2px 6px;
   border-radius: 5px;
 }
@@ -63,7 +62,7 @@ img {
 
 #Mao {
   position: absolute;
-  left: 200px; /* igual à largura do menu lateral */
+  left: 300px; /* igual à largura do menu lateral */
   right: 80px;
   bottom: 0;
   height: 40%;
@@ -87,20 +86,30 @@ img {
 }
 
 /**********************************************************************
- ESTILOS DOS BOTOES
+ ESTILOS DA BARRA LATERAL
 ************************************************************************/
 #menu-container {
   position: fixed;
   top: 0;
   left: 0;
-  width: 200px; /* ajuste conforme necessário */
+  width: 300px; /* adjust as needed */
   height: 100vh;
-  background: rgba(52, 152, 219, 0.15); /* leve destaque, pode mudar */
+  background: rgba(52, 152, 219, 0.15); /* subtle highlight, can change */
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 30px;
   z-index: 1000;
+}
+#menu-divisao {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  height: calc(100vh - 100px); /* 100px to leave space for the menu button */
+  width: 100%;
+  margin-top: 100px; /* space below the menu button */
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
 }
 #menu{
   position: absolute; 
@@ -115,6 +124,32 @@ img {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+
+#pontoMeta, #seuponto {
+  font-size: 3em;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(90deg, #3498db 40%, #4462ad 100%);
+  border-radius: 12px;
+  text-align: center;
+  letter-spacing: 2px;
+  min-width: 300px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#pontoMeta {
+  background: linear-gradient(90deg, #f10f0f 40%, #e63622 100%);
+  border-color: #f10f0f;
+}
+#seuponto {
+  background: linear-gradient(90deg, #2e78cc 40%, #2739ae 100%);
+  border-color: #2e38cc;
+}
+/**********************************************************************
+ ESTILOS DOS BOTOES GERAIS
+************************************************************************/
 .caixabotoes{
   position: absolute; /* Fixa na tela, independente do scroll */
   left: 0;         /* Alinha à esquerda */
