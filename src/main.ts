@@ -3,6 +3,7 @@ import "./style.css"; //Pra usar os estilos de forma global
  CONSTANTES,TIPOS e CLASSES
 ************************************************************************/
 //definindo os "tipos" de naipes e valores de carta que podem ter com |
+
 type Naipe = "copas" | "paus" | "espadas" | "ouros";
 
 type Valor = "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "J" | "Q" | "K" | "A";
@@ -16,8 +17,15 @@ let nmrDescartes =3;
 
 //faz os botões chamarem as funções correspondentes
 document.getElementById('botaojoga')?.addEventListener('click', jogacarta);
-document.getElementById('botaodescarta')?.addEventListener('click', descarta);
-// Variáveis globais do jogo
+document.getElementById('botaodescarta')?.addEventListener('click', () => {
+  if(nmrDescartes>0){
+    descarta()
+    nmrDescartes-=1;
+  }
+  console.log(nmrDescartes)
+  }
+);
+  // Variáveis globais do jogo
 let baralho: Carta[] = [];
 let mao: Carta[] = [];
 let descarte: Carta[] = [];
@@ -25,7 +33,6 @@ let descarte: Carta[] = [];
 class Carta {
   naipe: Naipe;
   valor: Valor;
-
   constructor(naipe: Naipe, valor: Valor) {
     this.naipe = naipe;
     this.valor = valor;
@@ -120,120 +127,113 @@ function cartasSelecionadas(mao: Carta[]): Carta[] {
 //função que vai avaliar as cartas selecionadas, contar naipes e cartas iguais ou sequenciais e retornar para a CalculaPontuação
 //Retorna o tipo de mão e as cartas pontuantes
 function avaliarMao(selecionadas: Carta[]): { pontuacao: string, cartas: Carta[] } {  
-  //transforma as strings de valor em numero para facilitar depois
+  // Record para transformar os valores das cartas em números para facilitar comparações
   const numeravalor: Record<string, number> = { "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9,
     "10": 10, "J": 11, "Q": 12, "K": 13, "A": 14 };
   
-  // Separa os valores e naipes em dois arrays diferentes (map é um 'atalho' pra isso, evitar fazer 'for')
+  // Separa os valores e naipes em arrays distintos
   const valores = selecionadas.map(carta => numeravalor[carta.valor]);
   const naipes = selecionadas.map(carta => carta.naipe);
-  // Ordena valores de forma crescente para facilitar ver se tem sequencia 
+  // Ordena os valores para facilitar a verificação de sequência
   const valoresNumericos = [...valores].sort((a, b) => a - b);
   
-  //defino contaValor como um objeto que vincula um valor (número) à quantidade
+  // Conta quantas vezes cada valor aparece
   const contaValor: Record<number, number> = {};
   valores.forEach(v => contaValor[v] = (contaValor[v] || 0) + 1);
-  
-  // Converte contaValor em array ordenado por quantidade (maior primeiro)
+  // Ordena as quantidades dos valores (maior primeiro)
   const valorOrdenado = Object.values(contaValor).sort((a, b) => b - a);
 
-  // mesma coisa do valor para o naipe
+  // Conta quantas vezes cada naipe aparece
   const contaNaipe: Record<Naipe, number> = { copas: 0, paus: 0, espadas: 0, ouros: 0 };
   naipes.forEach(n => contaNaipe[n]++);
-  // Conta os naipes e ordena para pegar o mais repetido no índice 0
+  // Ordena as quantidades dos naipes (maior primeiro)
   const ordenaNaipe = Object.values(contaNaipe).sort((a, b) => b - a);
 
-/****************************************************************************************** 
-Até aqui foi so preparação para organizar as cartas, agora que começa verificar a mão feita
-*******************************************************************************************/
-// Função para verificar sequência retornando true ou false
-function eSequencia(arr: number[]): boolean {
-  if(arr.length < 5) return false;
-  
-  // Verifica sequência normal
-  for(let i = 1; i < arr.length; i++){
-    if(arr[i] < arr[i-1]){
-      return false;
+  /****************************************************************************************** 
+  Funções auxiliares usadas para verificar tipos de mão:
+  - eSequencia: verifica se os valores estão em ordem crescente (sequência)
+  - eFlush: verifica se todas as cartas são do mesmo naipe
+  *******************************************************************************************/
+  function eSequencia(arr: number[]): boolean {
+    if(arr.length < 5) return false;
+    // Verifica se todos os valores estão em ordem crescente
+    for(let i = 1; i < arr.length; i++){
+      if(arr[i] !== arr[i-1] + 1){
+        return false;
+      }
+    }
+    return true;
+  }
+  function eFlush(arr: number[]): boolean {
+    // Retorna true se o naipe mais repetido aparece 5 vezes
+    return (arr[0] === 5);
+  }
+
+  // Verifica todas as possibilidades com 5 cartas selecionadas
+  if(selecionadas.length === 5) { 
+    // Royal Flush: sequência 10, J, Q, K, A do mesmo naipe
+    if (eFlush(ordenaNaipe) && 
+        valoresNumericos.join(',') === '10,11,12,13,14') {
+      return { pontuacao: "Royal Flush", cartas: selecionadas };
+    }
+
+    // Straight Flush: sequência do mesmo naipe
+    if (eFlush(ordenaNaipe) && eSequencia(valoresNumericos)) {
+      return { pontuacao: "Straight Flush", cartas: selecionadas };
+    }
+
+    // Flush House: todas do mesmo naipe e três de um valor, dois de outro
+    if (eFlush(ordenaNaipe) && valorOrdenado[0] === 3 && valorOrdenado[1] === 2) {
+      return { pontuacao: "Flush House", cartas: selecionadas };
+    }
+    
+    // Full House: três de um valor, dois de outro
+    if (valorOrdenado[0] === 3 && valorOrdenado[1] === 2) {
+      return { pontuacao: "Full House", cartas: selecionadas };
+    }
+    
+    // Flush: todas do mesmo naipe
+    if(eFlush(ordenaNaipe)) {
+      return { pontuacao: "Flush", cartas: selecionadas };
+    }
+    
+    // Sequência: valores em ordem
+    if(eSequencia(valoresNumericos)) {
+      return { pontuacao: "Sequência", cartas: selecionadas };
     }
   }
-  return true;
-}
 
-function eFlush(arr: number[]): boolean {
-  return (arr[0] === 5); // Se o naipe mais repetido aparece 5 vezes
-}
-
-// Funções helper para encontrar cartas específicas
-function encontrarValorComQuantidade(quantidade: number): number {
-  return Number(Object.keys(contaValor).find(k => contaValor[Number(k)] === quantidade) || 0);
-}
-
-function cartasComValor(valorNumerico: number): Carta[] {
-  return selecionadas.filter(c => numeravalor[c.valor] === valorNumerico);
-}
-
-//verifica todas as possibilidades com 5 cartas jogadas necessáriamente
-if(selecionadas.length === 5) { 
-  // Verifica Royal Flush: A, K, Q, J, 10 do mesmo naipe
-  if (eFlush(ordenaNaipe) && 
-      valoresNumericos.join(',') === '10,11,12,13,14') {
-    return { pontuacao: "Royal Flush", cartas: selecionadas };
+  // Quadra: quatro cartas do mesmo valor
+  if (valorOrdenado[0] === 4) {
+    const quadraValor = Object.keys(contaValor).find(v => contaValor[Number(v)] === 4);
+    const cartasQuadra = selecionadas.filter(c => numeravalor[c.valor] === Number(quadraValor));
+    return { pontuacao: "Quadra", cartas: cartasQuadra };
   }
 
-  // Verifica Straight Flush: sequência do mesmo naipe
-  if (eFlush(ordenaNaipe) && eSequencia(valoresNumericos)) {
-    return { pontuacao: "Straight Flush", cartas: selecionadas };
+  // Trinca: três cartas do mesmo valor
+  if (valorOrdenado[0] === 3) {
+    const trincaValor = Object.keys(contaValor).find(v => contaValor[Number(v)] === 3);
+    const cartastrinca = selecionadas.filter(c => numeravalor[c.valor] === Number(trincaValor));
+    return { pontuacao: "Trinca", cartas: cartastrinca };
   }
 
-  // Verifica Flush House: todas do mesmo naipe e três de um valor, dois de outro
-  if (eFlush(ordenaNaipe) && valorOrdenado[0] === 3 && valorOrdenado[1] === 2) {
-    return { pontuacao: "Flush House", cartas: selecionadas };
+  // Dois Pares: dois valores aparecem duas vezes cada
+  if (valorOrdenado[0] === 2 && valorOrdenado[1] === 2) {
+    const pares = Object.keys(contaValor).filter(v => contaValor[Number(v)] === 2);
+    const cartasDosPares = selecionadas.filter(c => pares.includes(numeravalor[c.valor].toString()));
+    return { pontuacao: "Dois Pares", cartas: cartasDosPares };
   }
-  
-  // Verifica Full House: três de um valor, dois de outro
-  if (valorOrdenado[0] === 3 && valorOrdenado[1] === 2) {
-    return { pontuacao: "Full House", cartas: selecionadas };
+
+  // Par: um valor aparece duas vezes
+  if (valorOrdenado[0] === 2) {
+    const parValor = Object.keys(contaValor).find(v => contaValor[Number(v)] === 2);
+    const cartasdopar = selecionadas.filter(c => numeravalor[c.valor] === Number(parValor));
+    return { pontuacao: "Par", cartas: cartasdopar };
   }
-  
-  // Verifica Flush: todas do mesmo naipe
-  if(eFlush(ordenaNaipe)) {
-    return { pontuacao: "Flush", cartas: selecionadas };
-  }
-  
-  // Verifica Sequência: valores em ordem
-  if(eSequencia(valoresNumericos)) {
-    return { pontuacao: "Sequência", cartas: selecionadas };
-  }
-}
 
-// Verifica Quadra (quatro cartas do mesmo valor)
-if (valorOrdenado[0] === 4) {
-  const quadraValor = encontrarValorComQuantidade(4);
-  return { pontuacao: "Quadra", cartas: cartasComValor(quadraValor) };
-}
-
-// Verifica Trinca
-if (valorOrdenado[0] === 3) {
-  const trincaValor = encontrarValorComQuantidade(3);
-  return { pontuacao: "Trinca", cartas: cartasComValor(trincaValor) };
-}
-
-// Verifica Dois Pares
-if (valorOrdenado[0] === 2 && valorOrdenado[1] === 2) {
-  const paresCartas = selecionadas.filter(c => contaValor[numeravalor[c.valor]] === 2);
-  return { pontuacao: "Dois Pares", cartas: paresCartas };
-}
-
-// Verifica Par
-if (valorOrdenado[0] === 2) {
-  const parValor = encontrarValorComQuantidade(2);
-  return { pontuacao: "Par", cartas: cartasComValor(parValor) };
-}
-
-// Carta Alta
-const cartaAlta = selecionadas.reduce((a, b) => numeravalor[a.valor] > numeravalor[b.valor] ? a : b);
-return { pontuacao: "Carta Alta", cartas: [cartaAlta] };
-//acabou
+  // Carta Alta: retorna a carta de maior valor
+  const cartaAlta = selecionadas.reduce((a, b) => numeravalor[a.valor] > numeravalor[b.valor] ? a : b);
+  return { pontuacao: "Carta Alta", cartas: [cartaAlta] };
 }
 
 // Função para calcular pontuação baseada na tabela oficial
@@ -306,31 +306,29 @@ function jogacarta() {
 }
 
 function descarta(): void {
-  if(nmrDescartes>0){
   // Seleciona as cartas marcadas como 'selecionada' na mão
   const selecionadas = cartasSelecionadas(mao);
   if (!Array.isArray(selecionadas) || selecionadas.length === 0) return;
 
   // Remove cartas selecionadas da mão, adiciona ao descarte e substitui por novas do baralho
   for (let i = 0; i < selecionadas.length; i++) {
-    const idx = mao.indexOf(selecionadas[i]);
-    if (idx !== -1) {
-      descarte.push(mao[idx]);
+    const indice = mao.indexOf(selecionadas[i]); //função que procura o indice da selecionada[i] na mao e retorna, 
+    // se n tiver retorna -1(checado no if embaixo aqui)
+    if (indice !== -1) {
       // Substitui por nova carta do baralho, se houver
+      descarte.push(mao[indice]);
+      // Tenta pegar uma nova carta do baralho, se houver
       const novaCarta = baralho.length > 0 ? baralho.pop()! : null;
-      if (novaCarta) {
-        mao[idx] = novaCarta;
+      if (novaCarta) { //verificando q tem valor 
+        // Se conseguiu pegar uma nova carta, substitui a carta descartada pela nova
+        mao[indice] = novaCarta;
       } else {
-        // Se não houver mais cartas, remove da mão
-        mao.splice(idx, 1);
+        // Se não houver mais cartas no baralho, remove a carta descartada da mão
+        mao.splice(indice, 1);
       }
-    }
+      }
   }
-  nmrDescartes-=1;
   renderiza(mao);
-}else(
-  console.log('acabou os descartes chefe')
-)
 }
 /**********************************************************************
  FUNÇÂO SOBRE MOSTRAR ALGO
