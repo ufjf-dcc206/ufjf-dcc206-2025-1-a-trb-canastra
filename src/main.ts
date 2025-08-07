@@ -1,4 +1,5 @@
 import "./style.css"; //Pra usar os estilos de forma global
+
 /**********************************************************************
  CONSTANTES,TIPOS e CLASSES
 ************************************************************************/
@@ -14,15 +15,16 @@ const jogador = document.getElementById('seuponto');
 let pontos = 0;
 let nmrJogadas = 4;
 let nmrDescartes =3;
-
+const botjoga = document.getElementById('botaojoga');
+const botdesc = document.getElementById('botaodescarta');
 //faz os botões chamarem as funções correspondentes
-document.getElementById('botaojoga')?.addEventListener('click', jogacarta);
-document.getElementById('botaodescarta')?.addEventListener('click', () => {
+botjoga?.addEventListener('click', jogacarta);
+botdesc?.addEventListener('click', () => {
   if(nmrDescartes>0){
     descarta()
     nmrDescartes-=1;
   }
-  console.log(nmrDescartes)
+  botdesc.classList.add('acabou')
   }
 );
   // Variáveis globais do jogo
@@ -154,19 +156,19 @@ function avaliarMao(selecionadas: Carta[]): { pontuacao: string, cartas: Carta[]
   - eSequencia: verifica se os valores estão em ordem crescente (sequência)
   - eFlush: verifica se todas as cartas são do mesmo naipe
   *******************************************************************************************/
-  function eSequencia(arr: number[]): boolean {
-    if(arr.length < 5) return false;
+  function eSequencia(cartas: number[]): boolean {
+    if(cartas.length < 5) return false;
     // Verifica se todos os valores estão em ordem crescente
-    for(let i = 1; i < arr.length; i++){
-      if(arr[i] !== arr[i-1] + 1){
+    for(let i = 1; i < cartas.length; i++){
+      if(cartas[i] !== cartas[i-1] + 1){
         return false;
       }
     }
     return true;
   }
-  function eFlush(arr: number[]): boolean {
+  function eFlush(cartas: number[]): boolean {
     // Retorna true se o naipe mais repetido aparece 5 vezes
-    return (arr[0] === 5);
+    return (cartas[0] === 5);
   }
 
   // Verifica todas as possibilidades com 5 cartas selecionadas
@@ -240,19 +242,19 @@ function avaliarMao(selecionadas: Carta[]): { pontuacao: string, cartas: Carta[]
 function calcularPontuacao(tipo: string, cartas: Carta[]): number {
   // usei record para criar um objetivo na qual sempre vai receber uma string, no caso
   //o tipo de mão e vai corresponder ao valor e multipicador dela no Balatro 
-  const tabelaPontuacao: Record<string, { base: number, multiplicador: number }> = 
+  const tabelaPontuacao: Record<string,number> = 
   {
-    "Flush House": { base: 140, multiplicador: 14 },
-    "Royal Flush": { base: 100, multiplicador: 8 },
-    "Straight Flush": { base: 100, multiplicador: 8 },
-    "Quadra": { base: 60, multiplicador: 7 }, 
-    "Full House": { base: 40, multiplicador: 4 },
-    "Flush": { base: 35, multiplicador: 4 },
-    "Sequência": { base: 30, multiplicador: 4 }, 
-    "Trinca": { base: 30, multiplicador: 3 }, 
-    "Dois Pares": { base: 20, multiplicador: 2 }, 
-    "Par": { base: 10, multiplicador: 2 }, 
-    "Carta Alta": { base: 5, multiplicador: 1 } 
+    "Flush House": 14,
+    "Royal Flush": 8 ,
+    "Straight Flush": 8 ,
+    "Quadra":  7 , 
+    "Full House": 4 ,
+    "Flush":  4 ,
+    "Sequência":  4 , 
+    "Trinca":  3 , 
+    "Dois Pares":  2 , 
+    "Par":  2 , 
+    "Carta Alta":  1  
   };
   //aqui puxa o correspondente a mão recebida
   const config = tabelaPontuacao[tipo];
@@ -263,10 +265,9 @@ function calcularPontuacao(tipo: string, cartas: Carta[]): number {
   let somaCartas = 0;
 
   cartas.forEach(c => {
-    if (["K", "Q", "J"].includes(c.valor)) {
+    if (["K"].includes(c.valor) || ["Q"].includes(c.valor) || ["J"].includes(c.valor)) {
       somaCartas += 10; //substituir as figuras por valor númerico
-    } 
-    if(["A"].includes(c.valor)){
+    } else if(["A"].includes(c.valor)){
       somaCartas+=15; //mesma coisa com os aces
     }
     else {
@@ -275,9 +276,9 @@ function calcularPontuacao(tipo: string, cartas: Carta[]): number {
   });
 
   // Fórmula do balatro: multiplicador * (valor base +  soma das cartas)
-  const pontuacaoTotal = config.multiplicador * (config.base + somaCartas);
+  const pontuacaoTotal = config * somaCartas;
   //tirar dps,mas so pra ver que ta funcionando
-  console.log(`${tipo}: (${config.multiplicador} ×  ${config.base} + ${somaCartas}) = ${pontuacaoTotal}`);
+  console.log(`${tipo}: (${config} × ${somaCartas}) = ${pontuacaoTotal}`);
   
   return pontuacaoTotal;
 }

@@ -123,7 +123,9 @@ img {
    Subtrai 7 gaps de 15px (entre as cartas) do total (100%), depois
     divide o restante por 8 para obter a largura máxima de cada carta. */
 }
-
+#Cartas:hover{
+  cursor: pointer;
+}
 .selecionada > img {
   animation: cresce 0.3s forwards;
   filter: brightness(1.1) drop-shadow(0 0 5px rgba(0, 255, 21, 0.7));
@@ -268,7 +270,9 @@ img {
   border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-
+.acabou {
+  cursor: not-allowed;
+}
 
 /**********************************************************************
  ANIMAÇÕES
