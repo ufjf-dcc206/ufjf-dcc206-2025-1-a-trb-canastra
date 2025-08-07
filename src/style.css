@@ -62,7 +62,7 @@ position: relative;
 
 #Mao {
   position: absolute;
-  left: 300px; /* igual à largura do menu lateral */
+  left: 40vh; /* igual à largura do menu lateral */
   right: 80px;
   bottom: 0;
   height: 40%;
@@ -92,9 +92,9 @@ position: relative;
   position: fixed;
   top: 0;
   left: 0;
-  width: 300px; /* adjust as needed */
+  width: 40vh;
   height: 100vh;
-  background: rgba(52, 152, 219, 0.15); /* subtle highlight, can change */
+  background: rgba(52, 152, 219, 0.15); 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -133,7 +133,7 @@ position: relative;
   border-radius: 12px;
   text-align: center;
   letter-spacing: 2px;
-  min-width: 300px;
+  min-width: 40vh;
   height: 100%;
   display: flex;
   align-items: center;
@@ -178,7 +178,7 @@ position: relative;
 
 .botoes-partida {
   color: white;
-  padding: 8px 16px;
+  padding: 4px 12px;
   text-align: center;
   text-decoration: none;
   font-size: 2em;
