@@ -126,8 +126,6 @@ img {
 
 .selecionada > img {
   animation: cresce 0.3s forwards;
-  transform: scale(1.15);
-  z-index: 10;
   filter: brightness(1.1) drop-shadow(0 0 5px rgba(0, 255, 21, 0.7));
 }
 
