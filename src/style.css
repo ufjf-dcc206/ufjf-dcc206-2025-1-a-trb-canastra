@@ -3,24 +3,39 @@
   font-family: "balatro";
   src: url(recursos/FonteBalatro.ttf);
 }
+
 /**********************************************************************
   ESTILO GERAIS
 ************************************************************************/
 * {
   font-family: "balatro", monospace;
+  box-sizing: border-box;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow-x: hidden;
+}
 
 body {
   background-color: rgb(81, 2, 2);
   color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 img {
-  height: 128px;
-  width: 128px;
+  height: 12vmin;
+  width: 12vmin;
   image-rendering: crisp-edges;
   image-rendering: pixelated;
+  max-height: 192px;
+  max-width: 192px;
+  min-height: 128px;
+  min-width: 128px;
 }
 /**********************************************************************
  ESTILO QUE ENVOLVA CARTA
@@ -28,26 +43,36 @@ img {
 
 #BaralhoVirado {
   position: absolute;
-  bottom: 20px;
-  width: 128px;
-  height: 128px;
-  right: 20px;
+  bottom: 2vh;
+  width: 15vmin;
+  height: 15vmin;
+  right: 2vw;
   display: flex;
+  max-width: 180px;
+  max-height: 180px;
+  min-width: 120px;
+  min-height: 120px;
 }
+
 #BaralhoVirado > img {
   width: 100%;
   height: 100%;
   object-fit: contain; /* para a imagem preencher toda a div*/
 }
+
 #contaCartas {
-position: relative;
-  top: 39px;
-  right: 62%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: rgb(245, 7, 7);
   font-size: 2em;
-  padding: 2px 6px;
+  padding: 0.2em 0.5em;
   border-radius: 5px;
+  white-space: nowrap;
+  pointer-events: none;
 }
+
 #CartaTitulo {
   margin: 0px;
   padding: 0;
@@ -55,34 +80,55 @@ position: relative;
   text-align: center;
   display: inline-block;
 }
+
 #CartaTitulo > img {
   height: 200px;
   width: 200px;
 }
 
 #Mao {
-  position: absolute;
-  left: 40vh; /* igual à largura do menu lateral */
-  right: 80px;
+  position: fixed;
+  left: 240px;
+  right: 200px;
   bottom: 0;
-  height: 40%;
-  background-color: rgba(118, 118, 246, 0.85);
+  height: 30vh;
+  background: linear-gradient(135deg, rgba(118, 118, 246, 0.9), rgba(80, 80, 200, 0.9));
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+#Cartas {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
-  padding: 10px 0;
-}
-#Cartas{
-  display: flex;
-  margin-bottom: 25px;
-  flex-direction: row;
   align-items: center;
+  gap: 15px;
+  width: 100%;
+  height: 75%;
+  overflow: hidden;
+  padding: 10px;
 }
+
+/* Responsividade para as cartas dentro da mão */
+#Cartas > * {
+  flex: 0 0 auto;
+  max-width: calc((100% - 7 * 15px) / 8); /* Usa calc para dividir o espaço disponível igualmente entre 8 cartas por linha.
+   Subtrai 7 gaps de 15px (entre as cartas) do total (100%), depois
+    divide o restante por 8 para obter a largura máxima de cada carta. */
+}
+
 .selecionada > img {
-  animation: cresce 1s forwards;
-  height: 192px;
-  width: 192px;
+  animation: cresce 0.3s forwards;
+  transform: scale(1.15);
+  z-index: 10;
+  filter: brightness(1.1) drop-shadow(0 0 5px rgba(0, 255, 21, 0.7));
 }
 
 /**********************************************************************
@@ -92,105 +138,139 @@ position: relative;
   position: fixed;
   top: 0;
   left: 0;
-  width: 40vh;
+  width: 220px;
   height: 100vh;
-  background: rgba(52, 152, 219, 0.15); 
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.2), rgba(41, 128, 185, 0.3));
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 30px;
+  padding-top: 2vh;
   z-index: 1000;
+  border-right: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
 }
+
 #menu-divisao {
-  display: grid;
-  grid-template-rows: repeat(6, 1fr);
-  height: calc(100vh - 100px); /* 100px to leave space for the menu button */
-  width: 100%;
-  margin-top: 100px; /* space below the menu button */
-  gap: 5px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 12vh);
+  width: 90%;
+  margin-top: 10vh;
+  gap: 15px;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 0 10px;
 }
-#menu{
-  position: absolute; 
-  top: 20px;
-  left: 20px;
-  background-color: #3498db;
+
+#menu {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: linear-gradient(135deg, #3498db, #2980b9);
   color: white;
-  padding: 10px 20px;
+  padding: 12px 20px;
   text-decoration: none;
-  font-size: 3em;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  font-size: 1.8em;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  font-weight: bold;
 }
 
 
 #pontoMeta, #seuponto {
-  font-size: 3em;
+  font-size: 2.2em;
   font-weight: bold;
   color: #fff;
-  background: linear-gradient(90deg, #3498db 40%, #4462ad 100%);
-  border-radius: 12px;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  border-radius: 15px;
   text-align: center;
-  letter-spacing: 2px;
-  min-width: 40vh;
-  height: 100%;
+  letter-spacing: 1px;
+  width: 100%;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
+
 #pontoMeta {
-  background: linear-gradient(90deg, #f10f0f 40%, #e63622 100%);
-  border-color: #f10f0f;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  border-color: rgba(255, 255, 255, 0.3);
+  margin-bottom: 10px;
 }
+
 #seuponto {
-  background: linear-gradient(90deg, #2e78cc 40%, #2739ae 100%);
-  border-color: #2e38cc;
+  background: linear-gradient(135deg, #27ae60, #229954);
+  border-color: rgba(255, 255, 255, 0.3);
 }
+
 /**********************************************************************
  ESTILOS DOS BOTOES GERAIS
 ************************************************************************/
-.caixabotoes{
-  position: absolute; /* Fixa na tela, independente do scroll */
-  left: 0;         /* Alinha à esquerda */
-  right: 0;        /* Alinha à direita */
-  bottom: 10px;       /* Alinha ao fundo */
-  display: flex;   /* Usa flexbox para organizar os botões */
-  justify-content: center; /* Centraliza os botões horizontalmente */
-  gap: 30px;       /* Espaço entre os botões */
-    padding: 20px 20px; /* Espaçamento interno */
+.caixabotoes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  height: 20%;
+  padding: 10px;
 }
+
 .botoes-menu {
   color: white;
-  padding: 15px 30px;
+  padding: 7vh 5vw;
   text-align: center;
   text-decoration: none;
-  font-size: 5em;
-  border-radius: 8px;
-  box-shadow: inset 0px -20px 20px 0px rgba(0, 0, 0, 0.1);
+  font-size: 4em;
+  border-radius: 12px;
+  box-shadow: inset 0px -10px 20px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  min-width: 150px;
 }
+
 .botoes-menu:first-child {
   background-color: aqua;
 }
+
 .botoes-menu:nth-child(2) {
   background-color: rgb(253, 3, 3);
 }
 
 .botoes-partida {
   color: white;
-  padding: 4px 12px;
+  padding: 15px 30px;
   text-align: center;
   text-decoration: none;
-  font-size: 2em;
-  border-radius: 6px;
-  box-shadow: inset 0px -10px 10px 0px rgba(0, 0, 0, 0.1);
+  font-size: 1.6em;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex: 1;
+  max-width: 180px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
+
 .botoes-partida:first-child {
-  background-color: rgb(13, 0, 255);
+  background: linear-gradient(135deg, #2e92cc, #2778ae);
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
+
 .botoes-partida:nth-child(2) {
-  background-color: rgb(253, 3, 3);
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
+
+
 
 /**********************************************************************
  ANIMAÇÕES
@@ -201,15 +281,14 @@ position: relative;
   40% { transform: rotate(-15deg); }
   60% { transform: rotate(15deg); }
   80% { transform: rotate(-15deg); }
-  100%{ transform: rotate(0deg);}
+  100% { transform: rotate(0deg); }
 }
+
 @keyframes cresce {
   from {
-    height: 128px;
-    width: 128px;
+    transform: scale(1);
   }
   to {
-    height: 192px;
-    width: 192px;
+    transform: scale(1.2);
   }
 }
