@@ -115,22 +115,12 @@ img {
   overflow: hidden;
   padding: 10px;
 }
-
-/* Responsividade para as cartas dentro da mão */
 #Cartas > * {
   flex: 0 0 auto;
   max-width: calc((100% - 7 * 15px) / 8); /* Usa calc para dividir o espaço disponível igualmente entre 8 cartas por linha.
    Subtrai 7 gaps de 15px (entre as cartas) do total (100%), depois
     divide o restante por 8 para obter a largura máxima de cada carta. */
 }
-#Cartas:hover{
-  cursor: pointer;
-}
-.selecionada > img {
-  animation: cresce 0.3s forwards;
-  filter: brightness(1.1) drop-shadow(0 0 5px rgba(0, 255, 21, 0.7));
-}
-
 /**********************************************************************
  ESTILOS DA BARRA LATERAL
 ************************************************************************/
@@ -277,20 +267,3 @@ img {
 /**********************************************************************
  ANIMAÇÕES
 ************************************************************************/
-@keyframes negado {
-  0% { transform: rotate(-15deg); }
-  20% { transform: rotate(15deg); }
-  40% { transform: rotate(-15deg); }
-  60% { transform: rotate(15deg); }
-  80% { transform: rotate(-15deg); }
-  100% { transform: rotate(0deg); }
-}
-
-@keyframes cresce {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.2);
-  }
-}

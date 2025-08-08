@@ -1,5 +1,5 @@
 import "./style.css"; //Pra usar os estilos de forma global
-
+import "./components/carta-component"; //Importa o componente de carta
 /**********************************************************************
  CONSTANTES,TIPOS e CLASSES
 ************************************************************************/
@@ -340,17 +340,17 @@ function renderiza(mao: Carta[]): void {
   }else{
   maocarta.innerHTML = ' ';
   for (let i = 0; i < mao.length; i++) {
-    const carta = document.createElement('div');
-    carta.classList.add('carta');
+    const carta = document.createElement('carta-component');
     carta.setAttribute('value', `${i}`);
     carta.innerHTML = `<img src="src/recursos/Cartas Grandes/${mao[i].valor}-${mao[i].naipe}.png" alt="">`;
-    carta.onclick = () => selecionar(carta);
+    // Removed onclick since it's now handled inside the Web Component
     maocarta.appendChild(carta);
   }
   }
 }
 
-//interatividade de selecionar carta
+//interatividade de selecionar carta - movido para  WEB COMPONENT
+/*
 function selecionar(carta: HTMLElement) {
   const nmr = document.querySelectorAll('.selecionada'); //pega todas as cartas seleciondas 
   if (nmr.length === 5 && !carta.classList.contains('selecionada')) { //verifica se ja tem 5  e se não ja foi selecionada
@@ -361,6 +361,7 @@ function selecionar(carta: HTMLElement) {
     carta.classList.toggle('selecionada'); // tira e coloca a classe selecionada
   }
 }
+*/
 
 
 /**********************************************************************

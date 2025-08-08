@@ -1,0 +1,22 @@
+O jogo deve permitir:
+Sacar cartas de um baralho tradicional de 4 naipes (2 ao 10, J, Q, K, A) para a mão;
+A mão ter no máximo 8 cartas;
+Selecionar até 5 cartas da mão para serem jogadas;
+Selecionar até 5 cartas da mão para serem descartadas;
+Jogar as cartas selecionadas para fazer algumas combinações de poker: maior carta, duplas, trincas, full-house, flushs e quadras;
+Apenas a maior combinação do das cartas jogadas pontua;
+A pontuação é a soma dos números da cartas vezes a raridade da mão (figuras valem 10, ases valem 15)
+Jogar no máximo de 4 mãos e descartar no máximo 3 vezes;
+Para vencer uma rodada, deve atingir um número de pontos do desafio começando de 100 pontos.
+Se o jogador não somar o número total de pontos depois de jogar as disponíveis, ele é derrotado.
+A cada nova rodada os pontos necessários dobram.
+Você pode adicionar novas regras desde que não contradizem as anteriores sem um bom motivo.
+
+
+O trabalho deve ser desenvolvido:
+Individual ou em grupos de até 4 pessoas;
+Deve ter um histórico gerenciado por controle de versão, sequencial, bem detalhado e com a participação de todos os membros do grupo.
+Ser feito em um projeto vite, usando TypeScript Vanilla (não use bibliotecas externas);
+Deve usar Web Components;
+A apresentação será pública;
+A avaliação subjetiva levando em conta originalidade, capricho, organização do código e domínio aparente do trabalho e conceitos por parte de todos os membros do grupo.
