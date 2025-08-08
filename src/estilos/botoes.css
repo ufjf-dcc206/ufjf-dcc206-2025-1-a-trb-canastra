@@ -22,11 +22,11 @@
 }
 
 .botoes-menu:first-child {
-  background-color: aqua;
+  background: linear-gradient(135deg, #53cc57, #388e3c);
 }
 
 .botoes-menu:nth-child(2) {
-  background-color: rgb(253, 3, 3);
+  background: linear-gradient(135deg, #f44336, #d32f2f);
 }
 
 .botoes-partida {
