@@ -5,35 +5,23 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Canastra 0.5</title>
-    <style>
-      body{
-        background-color: rgb(81, 2, 2);
-        color: white;
-      }
-      h1{
-        text-align: center;
-        margin-top: 30px;
-        font-size: 5em;
-      }
-      p{
-        text-align: center;
-        font-size: 2em;
-      }
-    </style>
   </head>
   <body>
-    <h1 id="valor-mao"></h1>
-    <div id="Mao">
-      <div id="Cartas">
+    <div id="interface">
+      <h1 id="valor-mao"></h1>
+      <div id="mesa-jogada"></div>
+      <div id="Mao">
+        <div id="Cartas">
+        </div>
+        <div class="caixabotoes" style="gap: 50px;">
+          <input class="botoes-partida" type="button" value="JOGAR" id="botaojoga">
+          <input class="botoes-partida" type="button" value="DESCARTAR" id="botaodescarta">
+        </div>
       </div>
-      <div class="caixabotoes" style="gap: 50px;">
-        <input class="botoes-partida" type="button" value="JOGAR" id="botaojoga">
-        <input class="botoes-partida" type="button" value="DESCARTAR" id="botaodescarta">
+      <div id="BaralhoVirado">
+        <img src="src/recursos/Cartas Grandes/card_back.png" alt="carta virada">
+        <span id="contaCartas">52</span>
       </div>
-    </div>
-    <div id="BaralhoVirado">
-      <img src="src/recursos/Cartas Grandes/card_back.png" alt="carta virada">
-      <span id="contaCartas">52</span>
     </div>
     <div id="menu-container">
       <div id="menu-divisao">

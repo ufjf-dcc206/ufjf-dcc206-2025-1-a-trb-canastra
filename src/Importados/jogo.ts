@@ -1,7 +1,8 @@
 import { Carta } from './carta_baralho.js';
 import { cartasSelecionadas } from './carta_baralho.js';
 import { renderiza, atualizarPontuacaoInterface, atualizaMao, atualizarBaralhoContagem, atualizaMeta,
-   atualizaRodada, transicaoDeRodadaNormal, rodadaFinal } from './interface.js';
+   atualizaRodada, transicaoDeRodadaNormal, rodadaFinal, 
+   renderizaMesaJogada} from './interface.js';
 import { avaliarMao, calcularPontuacao } from './avaliador.js';
 
 /**********************************************************************
@@ -63,10 +64,12 @@ export function Monitoramento(): void {
     if (selecionadas.length > 0) {
       console.log("Cartas selecionadas:", selecionadas);  
       const resultado = avaliarMao(selecionadas);
+      renderizaMesaJogada(resultado.cartas);
       const pontuacaoGanha = calcularPontuacao(resultado.pontuacao, resultado.cartas);
       atualizaMao(resultado.pontuacao  + ' = ' + pontuacaoGanha);
     }else{
         atualizaMao('')
+        renderizaMesaJogada([]);
     }
   }, 100);
 }
