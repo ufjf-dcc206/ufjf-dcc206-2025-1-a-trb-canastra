@@ -1,13 +1,15 @@
 import { Carta } from './carta_baralho.js';
 import { cartasSelecionadas } from './carta_baralho.js';
 import { renderiza, atualizarPontuacaoInterface, atualizaMao, atualizarBaralhoContagem, atualizaMeta,
-   atualizaRodada, transicaoDeRodadaNormal } from './interface.js';
+   atualizaRodada, transicaoDeRodadaNormal, rodadaFinal } from './interface.js';
 import { avaliarMao, calcularPontuacao } from './avaliador.js';
 
 /**********************************************************************
  FUNÇÔES SOBRE O JOGO E JOGAR
 ************************************************************************/
 //
+let nmrJogadas = 4;
+let nmrDescartes = 3;
 let rodada = 1; // Contador de rodadas
 let meta = 50; // Meta de pontos para vencer
 let pontos = 0;
@@ -15,19 +17,47 @@ let descarte: Carta[] = [];
 let baralho: Carta[] = [];
 let mao: Carta[] = [];
 
-// Função para receber o baralho criado na main e utilizar eles nas outras
-export function inicializarEstado(novoBaralho: Carta[], novaMao: Carta[]): void {
+let botjoga = document.getElementById('botaojoga');
+let botdesca = document.getElementById('botaodescarta');
+let botoesInicializados = false;
+
+export function inicializarEstado(novoBaralho:Carta[],novaMao:Carta[]):void{
   baralho = novoBaralho;
-  mao = novaMao;
-  
-  atualizarPontuacaoInterface(pontos);
-  atualizaMeta(meta);
+  mao= novaMao;
+}
+export function inicializarBotoes(): void {
+  if (!botoesInicializados) {
+    botoesInicializados = true;
+    
+    //faz os botões chamarem as funções correspondentes
+    botjoga?.addEventListener('click', ()=>{
+      if(!botjoga.classList.contains('acabou')){
+        jogacarta();
+        nmrJogadas-=1;
+        atualizarEstadoBotoes();
+      }
+    });
+    botdesca?.addEventListener('click', () => {
+      if(!botdesca.classList.contains('acabou')){
+        descarta();
+        nmrDescartes-=1;
+        atualizarEstadoBotoes();
+      }
+    });
+  }
+}
+
+function atualizarEstadoBotoes(): void {
+  nmrDescartes > 0 ? botdesca?.classList.remove('acabou') : botdesca?.classList.add('acabou');
+  nmrJogadas > 0 ? botjoga?.classList.remove('acabou') : botjoga?.classList.add('acabou');
 }
 
 // Função para iniciar o monitoramento das cartas selecionadas
 export function Monitoramento(): void {
+  inicializarBotoes();
   // Atualiza constantemente as cartas selecionadas e da o valor da mão
   setInterval(() => {
+    atualizarEstadoBotoes();
     atualizarBaralhoContagem(baralho.length);
     const selecionadas = cartasSelecionadas(mao);
     if (selecionadas.length > 0) {
@@ -89,9 +119,16 @@ export async function verificaPontoMeta(): Promise<void> {
       meta *= 2;
       pontos = 0;
       rodada += 1;
+      nmrDescartes = 3;
+      nmrJogadas = 4;
       atualizarPontuacaoInterface(pontos);
       atualizaMeta(meta);
       atualizaRodada(rodada);
     }
-  }
+  }else if (pontos >= meta && rodada === 10) {
+    if(await rodadaFinal(rodada)){
+      // Redireciona para página de vitória
+      window.location.href = 'vitoria.html';
+    }
+}
 }

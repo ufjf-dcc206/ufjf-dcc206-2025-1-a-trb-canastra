@@ -11,6 +11,9 @@ const meta = document.getElementById('pontoMeta');
 const valorMao = document.getElementById('valor-mao');
 const contaCartas = document.getElementById('contaCartas');
 const rodada = document.getElementById('rodada');
+
+const botjoga = document.getElementById('botaojoga');
+const botdesc = document.getElementById('botaodescarta');
 // Função para renderizar a mão na interface
 export function renderiza(mao: Carta[]): void {
   if (!maocarta) {
@@ -70,6 +73,25 @@ export function transicaoDeRodadaNormal(nmr: number): Promise<boolean> {
     document.body.appendChild(janela);
     const bot = document.createElement('button');
     modal.innerHTML = `<h1>Parabéns! Você atingiu a meta da rodada ${nmr}!</h1><p>Iniciando a próxima rodada com uma meta maior</p>`;
+    modal.appendChild(bot);
+    bot.id = 'botaoModal';
+    bot.textContent = 'Continuar';
+    bot.onclick = () => {
+      document.body.removeChild(janela);
+      resolve(true);
+    };
+  });
+}
+export function rodadaFinal(nmr: number): Promise<boolean> {
+  return new Promise((resolve) => {
+    const janela = document.createElement('div');
+    janela.id = 'transicao';
+    const modal = document.createElement('div');
+    modal.id = 'modal';
+    janela.appendChild(modal);
+    document.body.appendChild(janela);
+    const bot = document.createElement('button');
+    modal.innerHTML = `<h1>Parabéns! Você atingiu a meta da rodada ${nmr}!</h1><p>Você venceu o jogo!</p>`;
     modal.appendChild(bot);
     bot.id = 'botaoModal';
     bot.textContent = 'Continuar';

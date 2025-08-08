@@ -35,55 +35,55 @@ class CartaComponent extends HTMLElement {
         });
     }
     // Adiciona estilos CSS específicos para o componente
-    styles (){
+        styles (){
             const style = document.createElement('style');
         style.textContent = `
             .carta {
-                display: inline-block;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                position: relative;
-                
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            
             }
             
             .carta img {
-                height: 12vmin;
-                width: 12vmin;
-                max-height: 192px;
-                max-width: 192px;
-                min-height: 128px;
-                min-width: 128px;
-                image-rendering: crisp-edges;
-                image-rendering: pixelated;
-                border-radius: 8px;
-                transition: all 0.3s ease;
+            height: 12vmin;
+            width: 12vmin;
+            max-height: 192px;
+            max-width: 192px;
+            min-height: 128px;
+            min-width: 128px;
+            image-rendering: crisp-edges;
+            image-rendering: pixelated;
+            border-radius: 8px;
+            transition: all 0.3s ease;
             }
             
             .carta:hover img {
-                transform: translateY(-5px);
+            transform: translateY(-5px);
             }
             
             .carta.selecionada img {
-                transform: scale(1.2);
-                filter: brightness(1.1) drop-shadow(0 0 5px rgba(0, 255, 21, 0.7));
+            transform: scale(1.2);
+            filter: brightness(1) drop-shadow(0 0 5px rgba(30, 255, 0, 1));
             }
             
             .carta.negado img {
-                animation: negado 2s ease-in-out;
+            animation: negado 2s ease-in-out;
             }
             
             @keyframes negado {
-                0% { transform: rotate(-15deg); }
-                20% { transform: rotate(15deg); }
-                40% { transform: rotate(-15deg); }
-                60% { transform: rotate(15deg); }
-                80% { transform: rotate(-15deg); }
-                100% { transform: rotate(0deg); }
+            0% { transform: rotate(-15deg); }
+            20% { transform: rotate(15deg); }
+            40% { transform: rotate(-15deg); }
+            60% { transform: rotate(15deg); }
+            80% { transform: rotate(-15deg); }
+            100% { transform: rotate(0deg); }
             }
             
             @keyframes cresce {
-                from { transform: scale(1); }
-                to { transform: scale(1.2); }
+            from { transform: scale(1); }
+            to { transform: scale(1.2); }
             }
         `;
         return style
