@@ -1,4 +1,10 @@
+Importante seguir e verificar tudo aqui:
+
+
+
 O jogo deve permitir:
+
+
 Sacar cartas de um baralho tradicional de 4 naipes (2 ao 10, J, Q, K, A) para a mão;
 A mão ter no máximo 8 cartas;
 Selecionar até 5 cartas da mão para serem jogadas;
@@ -14,6 +20,8 @@ Você pode adicionar novas regras desde que não contradizem as anteriores sem u
 
 
 O trabalho deve ser desenvolvido:
+
+
 Individual ou em grupos de até 4 pessoas;
 Deve ter um histórico gerenciado por controle de versão, sequencial, bem detalhado e com a participação de todos os membros do grupo.
 Ser feito em um projeto vite, usando TypeScript Vanilla (não use bibliotecas externas);
