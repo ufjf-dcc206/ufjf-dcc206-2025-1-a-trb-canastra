@@ -8,6 +8,7 @@ import { Carta } from './carta_baralho.js';
 const maocarta = document.getElementById('Cartas');
 const jogador = document.getElementById('seuponto');
 const valorMao = document.getElementById('valor-mao');
+const contaCartas = document.getElementById('contaCartas');
 // Função para renderizar a mão na interface
 export function renderiza(mao: Carta[]): void {
   if (!maocarta) {
@@ -27,6 +28,12 @@ export function atualizaMao(str: string): void {
     if (valorMao) {
         valorMao.innerHTML = str;
     }
+}
+
+export function atualizarBaralhoContagem(contagem: number): void { 
+if(contaCartas) {
+    contaCartas.textContent = `${contagem}`;
+  }
 }
 // Função para atualizar pontuação na interface
 export function atualizarPontuacaoInterface(pontos: number): void {

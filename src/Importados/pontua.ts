@@ -1,6 +1,6 @@
 import { Carta } from './carta_baralho.js';
 import { cartasSelecionadas } from './carta_baralho.js';
-import { renderiza, atualizarPontuacaoInterface, atualizaMao } from './interface.js';
+import { renderiza, atualizarPontuacaoInterface, atualizaMao, atualizarBaralhoContagem } from './interface.js';
 import { avaliarMao, calcularPontuacao } from './avaliador.js';
 
 /**********************************************************************
@@ -22,15 +22,17 @@ export function inicializarEstado(novoBaralho: Carta[], novaMao: Carta[]): void 
 export function Monitoramento(): void {
   // Atualiza constantemente as cartas selecionadas e da o valor da mão
   setInterval(() => {
+    atualizarBaralhoContagem(baralho.length);
     const selecionadas = cartasSelecionadas(mao);
     if (selecionadas.length > 0) {
       console.log("Cartas selecionadas:", selecionadas);  
       const resultado = avaliarMao(selecionadas);
-      atualizaMao(resultado.pontuacao);
+      const pontuacaoGanha = calcularPontuacao(resultado.pontuacao, resultado.cartas);
+      atualizaMao(resultado.pontuacao  + ' = ' + pontuacaoGanha);
     }else{
         atualizaMao('')
     }
-  }, 1000);
+  }, 500);
 }
 
 export function jogacarta() {
