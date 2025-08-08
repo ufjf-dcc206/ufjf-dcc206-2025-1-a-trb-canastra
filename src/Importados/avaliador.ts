@@ -9,8 +9,12 @@ import type { Naipe } from './carta_baralho.js';
 //Retorna o tipo de mão e as cartas pontuantes
 export function avaliarMao(selecionadas: Carta[]): { pontuacao: string, cartas: Carta[] } {  
     // Record para transformar os valores das cartas em números para facilitar comparações
-  const numeravalor: Record<string, number> = { "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9,
-    "10": 10, "J": 11, "Q": 12, "K": 13, "A": 14 };
+  const numeravalor: Record<string, number> = 
+  { "2": 2, "3": 3, "4": 4, "5": 5,
+     "6": 6, "7": 7, "8": 8, "9": 9,
+    "10": 10, "J": 11, "Q": 12, "K": 13,
+     "A": 14 
+  };
   
   // Separa os valores e naipes em arrays distintos
   const valores = selecionadas.map(carta => numeravalor[carta.valor]);
@@ -157,8 +161,7 @@ export function calcularPontuacao(tipo: string, cartas: Carta[], rodada: number)
     1:1,
     2:1.5,
     3:2,
-    4:2.5,
-    5:3
+    4:2.5
   }
   // Fórmula do balatro: multiplicador * (valor base +  soma das cartas)
   const pontuacaoTotal = config * somaCartas * multiplicaRodada[rodada];

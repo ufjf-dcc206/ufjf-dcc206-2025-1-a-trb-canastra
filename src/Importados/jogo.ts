@@ -122,7 +122,7 @@ export function descarta(): void {
 }
 
 export async function verificaPontoMeta(): Promise<void> {
-  if (pontos >= meta && rodada < 5) {
+  if (pontos >= meta && rodada < 4) {
     if(await transicaoDeRodadaNormal(rodada)){
       rodada += 1;
       meta *= 2;
@@ -138,7 +138,7 @@ export async function verificaPontoMeta(): Promise<void> {
       atualizaMeta(meta);
       atualizaRodada(rodada);
     }
-  }else if (pontos >= meta && rodada === 5) {
+  }else if (pontos >= meta && rodada === 4) {
     if(await rodadaFinal(rodada)){
       // Redireciona para página de vitória
       window.location.href = 'vitoria.html';
