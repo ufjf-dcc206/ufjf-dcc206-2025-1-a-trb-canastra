@@ -21,9 +21,22 @@ class CartaComponent extends HTMLElement {
         Array.from(this.childNodes).forEach(node => {
             carta.appendChild(node.cloneNode(true));
         });
+        const style = this.styles();
+        
+        // Adiciona os estilos e o container principal à shadow DOM
+        if (this.shadowRoot) {
+            this.shadowRoot.appendChild(style);
+            this.shadowRoot.appendChild(carta);
+        }
 
-        // Adiciona estilos CSS específicos para o componente
-        const style = document.createElement('style');
+        // Adiciona um listener para o evento de clique na carta
+        carta.addEventListener('click', () => {
+            this.selecionar();
+        });
+    }
+    // Adiciona estilos CSS específicos para o componente
+        styles (){
+            const style = document.createElement('style');
         style.textContent = `
             .carta {
                 display: inline-block;
@@ -73,19 +86,8 @@ class CartaComponent extends HTMLElement {
                 to { transform: scale(1.2); }
             }
         `;
-
-        // Adiciona os estilos e o container principal à shadow DOM
-        if (this.shadowRoot) {
-            this.shadowRoot.appendChild(style);
-            this.shadowRoot.appendChild(carta);
+        return style
         }
-
-        // Adiciona um listener para o evento de clique na carta
-        carta.addEventListener('click', () => {
-            this.selecionar();
-        });
-    }
-
     // Lida com o clique na carta
     selecionar() {
         // Verifica quantas cartas estão selecionadas globalmente (no documento)
