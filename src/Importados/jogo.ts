@@ -2,7 +2,9 @@ import { Carta,criarBaralho, pegarCarta } from './carta_baralho.js';
 import { cartasSelecionadas } from './carta_baralho.js';
 import { renderiza, atualizarPontuacaoInterface, atualizaMao, atualizarBaralhoContagem, atualizaMeta,
    atualizaRodada, transicaoDeRodadaNormal, rodadaFinal, 
-   renderizaMesaJogada} from './interface.js';
+   renderizaMesaJogada,
+   atualizajogada,
+   atualizadescarte} from './interface.js';
 import { avaliarMao, calcularPontuacao } from './avaliador.js';
 
 /**********************************************************************
@@ -12,7 +14,7 @@ import { avaliarMao, calcularPontuacao } from './avaliador.js';
 let nmrJogadas = 4;
 let nmrDescartes = 3;
 let rodada = 1; // Contador de rodadas
-let meta = 50; // Meta de pontos para vencer
+let meta = 100; // Meta de pontos para vencer
 let pontos = 0;
 let descarte: Carta[] = [];
 let baralho: Carta[] = [];
@@ -25,6 +27,8 @@ let botoesInicializados = false;
 export function inicializarEstado(novoBaralho:Carta[],novaMao:Carta[]):void{
   baralho = novoBaralho;
   mao= novaMao;
+        atualizadescarte(nmrDescartes);
+      atualizajogada(nmrJogadas);
 }
 export function inicializarBotoes(): void {
   if (!botoesInicializados) {
@@ -35,6 +39,7 @@ export function inicializarBotoes(): void {
       if(!botjoga.classList.contains('acabou')){
         jogacarta();
         nmrJogadas-=1;
+        atualizajogada(nmrJogadas)
         atualizarEstadoBotoes();
       }
     });
@@ -42,6 +47,7 @@ export function inicializarBotoes(): void {
       if(!botdesca.classList.contains('acabou')){
         descarta();
         nmrDescartes-=1;
+        atualizadescarte(nmrDescartes);
         atualizarEstadoBotoes();
       }
     });
@@ -61,11 +67,10 @@ export function Monitoramento(): void {
     atualizarEstadoBotoes();
     atualizarBaralhoContagem(baralho.length);
     const selecionadas = cartasSelecionadas(mao);
-    if (selecionadas.length > 0) {
-      console.log("Cartas selecionadas:", selecionadas);  
+    if (selecionadas.length > 0) {  
       const resultado = avaliarMao(selecionadas);
       renderizaMesaJogada(resultado.cartas);
-      const pontuacaoGanha = calcularPontuacao(resultado.pontuacao, resultado.cartas);
+      const pontuacaoGanha = calcularPontuacao(resultado.pontuacao, resultado.cartas,rodada);
       atualizaMao(resultado.pontuacao  + ' = ' + pontuacaoGanha);
     }else{
         atualizaMao('')
@@ -80,7 +85,7 @@ export function jogacarta() {
   const resultado = avaliarMao(selecionadas);
 
   // Calcula pontuação usando a nova tabela
-  const pontuacaoGanha = calcularPontuacao(resultado.pontuacao, resultado.cartas);
+  const pontuacaoGanha = calcularPontuacao(resultado.pontuacao, resultado.cartas,rodada);
   
   pontos += pontuacaoGanha;
   atualizarPontuacaoInterface(pontos);
@@ -117,21 +122,23 @@ export function descarta(): void {
 }
 
 export async function verificaPontoMeta(): Promise<void> {
-  if (pontos >= meta && rodada < 10) {
+  if (pontos >= meta && rodada < 5) {
     if(await transicaoDeRodadaNormal(rodada)){
       rodada += 1;
-      meta = 50 * rodada;
+      meta *= 2;
       pontos = 0;
       nmrDescartes = 3;
       nmrJogadas = 4;
       baralho = criarBaralho();
       mao = pegarCarta(baralho, 8);
+      atualizadescarte(nmrDescartes);
+      atualizajogada(nmrJogadas);
       renderiza(mao);
       atualizarPontuacaoInterface(pontos);
       atualizaMeta(meta);
       atualizaRodada(rodada);
     }
-  }else if (pontos >= meta && rodada === 10) {
+  }else if (pontos >= meta && rodada === 5) {
     if(await rodadaFinal(rodada)){
       // Redireciona para página de vitória
       window.location.href = 'vitoria.html';

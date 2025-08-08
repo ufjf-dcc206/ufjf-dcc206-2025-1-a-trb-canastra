@@ -6,12 +6,14 @@ import { Carta } from './carta_baralho.js';
 
 // Elementos do DOM
 const maocarta = document.getElementById('Cartas');
-const jogador = document.getElementById('seuponto');
-const meta = document.getElementById('pontoMeta');
+const jogador = document.getElementById('ponto');
+const meta = document.getElementById('meta');
 const valorMao = document.getElementById('valor-mao');
 const contaCartas = document.getElementById('contaCartas');
 const rodada = document.getElementById('rodada');
 const mesajogada = document.getElementById('mesa-jogada');
+const jogadasnmr = document.getElementById('Jogadas');
+const descartenmr = document.getElementById('Descartes');
 
 
 // Função para renderizar a mão na interface
@@ -112,5 +114,16 @@ export function renderizaMesaJogada(arr: Carta[]): void {
       carta.innerHTML = `<img src="src/recursos/Cartas Grandes/${arr[i].valor}-${arr[i].naipe}.png" alt="">`;
       mesajogada.appendChild(carta);
     }
+  }
+}
+export function atualizajogada(nmr:number): void {
+  if (jogadasnmr) {
+    jogadasnmr.textContent = `${nmr}`;
+  }
+}
+
+export function atualizadescarte(nmr:number): void {
+  if (descartenmr) {
+    descartenmr.textContent = `${nmr}`;
   }
 }

@@ -6,7 +6,7 @@ import "./estilos/modal.css"
 import "./components/carta-component"; //Importa o componente de carta
 import { criarBaralho, pegarCarta } from './Importados/carta_baralho.js';
 import { inicializarEstado, Monitoramento, inicializarBotoes } from './Importados/jogo.js';
-import { renderiza, atualizarBaralhoContagem} from './Importados/interface.js';
+import { renderiza, atualizarBaralhoContagem, atualizaMeta} from './Importados/interface.js';
 
 
 /**********************************************************************
@@ -24,6 +24,7 @@ function iniciarJogo(): void {
   
   // Inicializa o estado do jogo
   inicializarEstado(baralho, mao);
+  atualizaMeta(100);
   inicializarBotoes();
   // Renderiza as cartas na interface
   renderiza(mao);

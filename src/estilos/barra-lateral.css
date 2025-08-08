@@ -20,7 +20,7 @@
   height: calc(100vh - 12vh);
   width: 90%;
   margin-top: 10vh;
-  gap: 15px;
+  gap: 40px;
   align-items: center;
   justify-content: flex-start;
   padding: 0 10px;
@@ -46,10 +46,10 @@
     right: 5vh;
 
 }
-
-#pontoMeta, #seuponto {
-  font-size: 2.2em;
-  font-weight: bold;
+.caixa{
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  border-color: rgba(255, 255, 255, 0.3);
+   font-size: 2.2em;
   color: #fff;
   background: linear-gradient(135deg, #3498db, #2980b9);
   border-radius: 15px;
@@ -59,6 +59,8 @@
   height: 80px;
   display: flex;
   align-items: center;
+  text-transform: uppercase;
+  flex-direction: column;
   justify-content: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
@@ -73,5 +75,14 @@
 
 #seuponto {
   background: linear-gradient(135deg, #279eae, #229997);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+#caixadescarte {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+#caixamao {
+  background: linear-gradient(135deg, #3498db, #2980b9);
   border-color: rgba(255, 255, 255, 0.3);
 }

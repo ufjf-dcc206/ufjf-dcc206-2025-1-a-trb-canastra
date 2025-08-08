@@ -30,19 +30,19 @@
 }
 
 .botoes-partida {
-    color: white; 
-    padding: 15px 30px; /* Adiciona espaçamento interno: 15px vertical, 30px horizontal */
-    text-align: center; /* Centraliza o texto horizontalmente */
-    font-size: 1.6em;
-    border-radius: 12px; /* Arredonda as bordas */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Adiciona sombra*/
-    border: none; /* Remove todas as bordas */
-    cursor: pointer; /* Mostra cursor de "mão" quando hover sobre o elemento */
-    white-space: nowrap; /* Impede quebra de linha no texto */
-    flex: auto; /* Faz o elemento crescer/diminuir para ocupar espaço disponível no container flex */
-    max-width: 180px; /* Define largura máxima de 180px */
-    min-width: 120px; /* Define largura mínima de 120px */
-    text-transform: uppercase; /* Transforma todo o texto em maiúsculas */
+  color: white; 
+  padding: 15px 22px; /* Adiciona espaçamento interno: 15px vertical, 30px horizontal */
+  text-align: center; /* Centraliza o texto horizontalmente */
+  font-size: 2.4em;
+  border-radius: 12px; /* Arredonda as bordas */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Adiciona sombra*/
+  border: none; /* Remove todas as bordas */
+  cursor: pointer; /* Mostra cursor de "mão" quando hover sobre o elemento */
+  white-space: nowrap; /* Impede quebra de linha no texto */
+  flex: auto; /* Faz o elemento crescer/diminuir para ocupar espaço disponível no container flex */
+  max-width: 180px; /* Define largura máxima de 180px */
+  min-width: 120px; /* Define largura mínima de 120px */
+  text-transform: uppercase; /* Transforma todo o texto em maiúsculas */
 }
 
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Canastra 0.5</title>]
+    <title>Canastra 0.5</title>
   </head>
   <body>
     <div id="interface">
@@ -27,8 +27,23 @@
       <div id="menu-divisao">
       <a href="index.html" id="menu">MENU</a>
       <div id="rodada"> 1</div>
-      <div id="pontoMeta"> 50</div>
-      <div id="seuponto"> 0</div>
+      <div id="pontoMeta" class="caixa">
+        <div>Meta</div>
+        <div id="meta">0</div>
+      </div>
+      <div class="caixa" id="seuponto">
+        <div>Pontuação</div>
+        <div id="ponto">0</div>
+      </div>
+      <div class="caixa" id="caixamao">
+      <div>Mãos</div>
+      <div id="Jogadas"></div>
+      </div>
+
+      <div class="caixa" id="caixadescarte">
+        <div>Descartes:</div>
+        <div id="Descartes"></div>
+      </div>
     </div>
     <script type="module" src="src/main.ts"></script>
   </body>
