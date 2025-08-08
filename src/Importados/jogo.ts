@@ -116,9 +116,9 @@ export function descarta(): void {
 export async function verificaPontoMeta(): Promise<void> {
   if (pontos >= meta && rodada < 10) {
     if(await transicaoDeRodadaNormal(rodada)){
-      meta *= 2;
-      pontos = 0;
       rodada += 1;
+      meta = 50 * rodada;
+      pontos = 0;
       nmrDescartes = 3;
       nmrJogadas = 4;
       atualizarPontuacaoInterface(pontos);
