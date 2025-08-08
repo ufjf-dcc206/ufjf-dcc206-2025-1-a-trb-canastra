@@ -6,7 +6,7 @@ class CartaComponent extends HTMLElement {
         this.attachShadow({ mode: 'open' });
     }
 
-    // Método chamado automaticamente quando o elemento é adicionado ao DOM
+    // Método chamado automaticamente quando o elemento é adicionado ao DOM para iniciar o build
     connectedCallback() {
         this.build();
     }
@@ -17,7 +17,7 @@ class CartaComponent extends HTMLElement {
         const carta = document.createElement('div');
         carta.classList.add('carta');
 
-        // Copia os filhos do elemento original para a shadow DOM, no caso esta pegando o <img> criado no main.ts
+        // Copia os filhos do elemento original para a shadow DOM, no caso esta pegando o <img> criado no interface.ts
         Array.from(this.childNodes).forEach(node => {
             carta.appendChild(node.cloneNode(true));
         });
@@ -35,7 +35,7 @@ class CartaComponent extends HTMLElement {
         });
     }
     // Adiciona estilos CSS específicos para o componente
-        styles (){
+    styles (){
             const style = document.createElement('style');
         style.textContent = `
             .carta {

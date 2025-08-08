@@ -1,12 +1,15 @@
 import { Carta } from './carta_baralho.js';
 import { cartasSelecionadas } from './carta_baralho.js';
-import { renderiza, atualizarPontuacaoInterface, atualizaMao, atualizarBaralhoContagem } from './interface.js';
+import { renderiza, atualizarPontuacaoInterface, atualizaMao, atualizarBaralhoContagem, atualizaMeta,
+   atualizaRodada, transicaoDeRodadaNormal } from './interface.js';
 import { avaliarMao, calcularPontuacao } from './avaliador.js';
 
 /**********************************************************************
  FUNÇÔES SOBRE O JOGO E JOGAR
 ************************************************************************/
-const objetivo = 50;
+//
+let rodada = 1; // Contador de rodadas
+let meta = 50; // Meta de pontos para vencer
 let pontos = 0;
 let descarte: Carta[] = [];
 let baralho: Carta[] = [];
@@ -16,6 +19,9 @@ let mao: Carta[] = [];
 export function inicializarEstado(novoBaralho: Carta[], novaMao: Carta[]): void {
   baralho = novoBaralho;
   mao = novaMao;
+  
+  atualizarPontuacaoInterface(pontos);
+  atualizaMeta(meta);
 }
 
 // Função para iniciar o monitoramento das cartas selecionadas
@@ -45,6 +51,7 @@ export function jogacarta() {
   
   pontos += pontuacaoGanha;
   atualizarPontuacaoInterface(pontos);
+  verificaPontoMeta();
 
   // Descarta todas as cartas selecionadas
   descarta();
@@ -74,4 +81,17 @@ export function descarta(): void {
       }
   }
   renderiza(mao);
+}
+
+export async function verificaPontoMeta(): Promise<void> {
+  if (pontos >= meta && rodada < 10) {
+    if(await transicaoDeRodadaNormal(rodada)){
+      meta *= 2;
+      pontos = 0;
+      rodada += 1;
+      atualizarPontuacaoInterface(pontos);
+      atualizaMeta(meta);
+      atualizaRodada(rodada);
+    }
+  }
 }
