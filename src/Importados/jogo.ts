@@ -1,4 +1,4 @@
-import { Carta } from './carta_baralho.js';
+import { Carta,criarBaralho, pegarCarta } from './carta_baralho.js';
 import { cartasSelecionadas } from './carta_baralho.js';
 import { renderiza, atualizarPontuacaoInterface, atualizaMao, atualizarBaralhoContagem, atualizaMeta,
    atualizaRodada, transicaoDeRodadaNormal, rodadaFinal, 
@@ -124,6 +124,9 @@ export async function verificaPontoMeta(): Promise<void> {
       pontos = 0;
       nmrDescartes = 3;
       nmrJogadas = 4;
+      baralho = criarBaralho();
+      mao = pegarCarta(baralho, 8);
+      renderiza(mao);
       atualizarPontuacaoInterface(pontos);
       atualizaMeta(meta);
       atualizaRodada(rodada);
