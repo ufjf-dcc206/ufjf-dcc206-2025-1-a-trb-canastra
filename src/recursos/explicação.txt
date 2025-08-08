@@ -1,7 +1,9 @@
-Essa pasta é so para ter qualquer asset que a gente pegar, sempre sendo de copyright free
+Essa pasta é so para ter qualquer asset que a gente pegar, sempre sendo de copyright free e colocando qualquer referencia aqui
 
-1: Fonte do balatro para ficar parecido 
-2: Unico asset de carta que achei, se acharem outro fiquem a  vontade para substituir licença:
+1: Fonte do balatro: m6x11 by Daniel Linssen
+
+
+2: Asset de carta licença:
 Playing Cards Pack
 
 	Created/distributed by Kenney (www.kenney.nl)
