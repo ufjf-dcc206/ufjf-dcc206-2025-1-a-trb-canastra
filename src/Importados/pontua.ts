@@ -26,7 +26,8 @@ export function Monitoramento(): void {
     if (selecionadas.length > 0) {
       console.log("Cartas selecionadas:", selecionadas);  
       const resultado = avaliarMao(selecionadas);
-      atualizaMao(resultado.pontuacao);
+      const pontuacaoGanha = calcularPontuacao(resultado.pontuacao, resultado.cartas);
+      atualizaMao(resultado.pontuacao  + ' = ' + pontuacaoGanha);
     }else{
         atualizaMao('')
     }
