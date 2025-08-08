@@ -7,8 +7,10 @@ import { Carta } from './carta_baralho.js';
 // Elementos do DOM
 const maocarta = document.getElementById('Cartas');
 const jogador = document.getElementById('seuponto');
+const meta = document.getElementById('pontoMeta');
 const valorMao = document.getElementById('valor-mao');
 const contaCartas = document.getElementById('contaCartas');
+const rodada = document.getElementById('rodada');
 // Função para renderizar a mão na interface
 export function renderiza(mao: Carta[]): void {
   if (!maocarta) {
@@ -45,4 +47,35 @@ export function atualizarPontuacaoInterface(pontos: number): void {
 // Função para obter elemento da pontuação
 export function obterElementoJogador(): HTMLElement | null {
   return jogador;
+}
+
+export function atualizaMeta(nmr:number): void {
+  if (meta) {
+    meta.textContent = `${nmr}`;
+  }
+} 
+export function atualizaRodada(nmr:number):void{
+  if(rodada)
+  {
+    rodada.textContent = `${nmr}`;
+  }
+}
+export function transicaoDeRodadaNormal(nmr: number): Promise<boolean> {
+  return new Promise((resolve) => {
+    const janela = document.createElement('div');
+    janela.id = 'transicao';
+    const modal = document.createElement('div');
+    modal.id = 'modal';
+    janela.appendChild(modal);
+    document.body.appendChild(janela);
+    const bot = document.createElement('button');
+    modal.innerHTML = `<h1>Parabéns! Você atingiu a meta da rodada ${nmr}!</h1><p>Iniciando a próxima rodada com uma meta maior</p>`;
+    modal.appendChild(bot);
+    bot.id = 'botaoModal';
+    bot.textContent = 'Continuar';
+    bot.onclick = () => {
+      document.body.removeChild(janela);
+      resolve(true);
+    };
+  });
 }

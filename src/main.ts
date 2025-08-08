@@ -2,8 +2,8 @@
 import "./style.css"; //Pra usar os estilos de forma global
 import "./components/carta-component"; //Importa o componente de carta
 import { criarBaralho, pegarCarta } from './Importados/carta_baralho.js';
-import { jogacarta, descarta, inicializarEstado, Monitoramento } from './Importados/pontua.js';
-import { renderiza } from './Importados/interface.js';  
+import { jogacarta, descarta, inicializarEstado, Monitoramento } from './Importados/jogo.js';
+import { renderiza, atualizarBaralhoContagem, atualizaMeta, atualizarPontuacaoInterface } from './Importados/interface.js';
 
 
 /**********************************************************************
@@ -46,6 +46,10 @@ function iniciarJogo(): void {
   // Renderiza as cartas na interface
   renderiza(mao);
   
+  // Atualiza o contador de cartas restantes no baralho
+  atualizarBaralhoContagem(baralho.length);
+
+
   // Inicia o monitoramento das cartas selecionadas
   Monitoramento();
 }
