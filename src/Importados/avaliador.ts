@@ -118,7 +118,7 @@ export function avaliarMao(selecionadas: Carta[]): { pontuacao: string, cartas: 
 }
 
 // Função para calcular pontuação baseada na tabela oficial
-export function calcularPontuacao(tipo: string, cartas: Carta[]): number {
+export function calcularPontuacao(tipo: string, cartas: Carta[], rodada: number): number {
   // usei record para criar um objetivo na qual sempre vai receber uma string, no caso
   //o tipo de mão e vai corresponder ao valor e multipicador dela no Balatro 
   const tabelaPontuacao: Record<string,number> = 
@@ -153,12 +153,18 @@ export function calcularPontuacao(tipo: string, cartas: Carta[]): number {
       somaCartas += Number(c.valor); //aqui é so somar o numero direto
     }
   });
-
+  const multiplicaRodada:Record<number, number> = {
+    1:1,
+    2:1.5,
+    3:2,
+    4:2.5,
+    5:3
+  }
   // Fórmula do balatro: multiplicador * (valor base +  soma das cartas)
-  const pontuacaoTotal = config * somaCartas;
+  const pontuacaoTotal = config * somaCartas * multiplicaRodada[rodada];
   //tirar dps,mas so pra ver que ta funcionando
-  console.log(`${tipo}: (${config} × ${somaCartas}) = ${pontuacaoTotal}`);
-  
+  console.log(`${tipo}: (${config} × ${somaCartas}) x ${multiplicaRodada[rodada]} = ${pontuacaoTotal}`);
+
   return pontuacaoTotal;
 }
 
