@@ -1,0 +1,62 @@
+.caixabotoes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  height: 20%;
+  padding: 10px;
+}
+
+.botoes-menu {
+  color: white;
+  padding: 7vh 5vw;
+  text-align: center;
+  text-decoration: none;
+  font-size: 4em;
+  border-radius: 12px;
+  box-shadow: inset 0px -10px 20px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  min-width: 150px;
+}
+
+.botoes-menu:first-child {
+  background-color: aqua;
+}
+
+.botoes-menu:nth-child(2) {
+  background-color: rgb(253, 3, 3);
+}
+
+.botoes-partida {
+    color: white; 
+    padding: 15px 30px; /* Adiciona espaçamento interno: 15px vertical, 30px horizontal */
+    text-align: center; /* Centraliza o texto horizontalmente */
+    font-size: 1.6em;
+    border-radius: 12px; /* Arredonda as bordas */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Adiciona sombra*/
+    border: none; /* Remove todas as bordas */
+    cursor: pointer; /* Mostra cursor de "mão" quando hover sobre o elemento */
+    white-space: nowrap; /* Impede quebra de linha no texto */
+    flex: auto; /* Faz o elemento crescer/diminuir para ocupar espaço disponível no container flex */
+    max-width: 180px; /* Define largura máxima de 180px */
+    min-width: 120px; /* Define largura mínima de 120px */
+    text-transform: uppercase; /* Transforma todo o texto em maiúsculas */
+}
+
+
+
+.botoes-partida:first-child {
+  background: linear-gradient(135deg, #2e92cc, #2778ae);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.botoes-partida:nth-child(2) {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.acabou {
+  cursor: not-allowed;
+}
