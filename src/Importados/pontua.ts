@@ -32,7 +32,7 @@ export function Monitoramento(): void {
     }else{
         atualizaMao('')
     }
-  }, 500);
+  }, 100);
 }
 
 export function jogacarta() {
