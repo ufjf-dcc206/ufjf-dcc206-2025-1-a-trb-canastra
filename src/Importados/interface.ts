@@ -11,9 +11,9 @@ const meta = document.getElementById('pontoMeta');
 const valorMao = document.getElementById('valor-mao');
 const contaCartas = document.getElementById('contaCartas');
 const rodada = document.getElementById('rodada');
+const mesajogada = document.getElementById('mesa-jogada');
 
-const botjoga = document.getElementById('botaojoga');
-const botdesc = document.getElementById('botaodescarta');
+
 // Função para renderizar a mão na interface
 export function renderiza(mao: Carta[]): void {
   if (!maocarta) {
@@ -100,4 +100,17 @@ export function rodadaFinal(nmr: number): Promise<boolean> {
       resolve(true);
     };
   });
+}
+
+export function renderizaMesaJogada(arr: Carta[]): void {
+  if (!mesajogada) {
+    console.error("Elemento 'mesa-jogada' não encontrado.");
+  } else {
+    mesajogada.innerHTML = ' ';
+    for (let i = 0; i < arr.length; i++) {
+      const carta = document.createElement('div');
+      carta.innerHTML = `<img src="src/recursos/Cartas Grandes/${arr[i].valor}-${arr[i].naipe}.png" alt="">`;
+      mesajogada.appendChild(carta);
+    }
+  }
 }
