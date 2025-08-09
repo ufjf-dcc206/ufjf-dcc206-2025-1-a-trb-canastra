@@ -1,0 +1,19 @@
+{
+  "name": "ufjf-dcc206-2025-1-a-trb-canastra",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc src/main.ts",
+    "preview": "vite preview",
+    "test": "vitest",
+    "index": "ts-node-dev -respawn -transpile-only main.ts"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^2.0.0",
+    "typescript": "~5.8.3",
+    "vite": "^7.0.6",
+    "vitest": "^3.2.4"
+  }
+}

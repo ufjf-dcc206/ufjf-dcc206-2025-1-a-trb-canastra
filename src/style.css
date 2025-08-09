@@ -1,0 +1,170 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "balatro";
+  src: url(recursos/FonteBalatro.ttf);
+}
+/**********************************************************************
+  ESTILO GERAIS
+************************************************************************/
+* {
+  font-family: "balatro", monospace;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: rgb(81, 2, 2);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#modal > h1{
+  text-align: center;
+  font-size: 5em;
+}
+#modal >p{
+  font-size: 2em;
+}
+
+h1#valor-mao {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 4em;
+  color: white;
+}
+
+img {
+  height: 15vmin; /* Define altura como 12% da menor dimensão da viewport */
+  width: 15vmin; /* Define largura como 12% da menor dimensão da viewport */
+  image-rendering: crisp-edges; /* Renderização nítida para imagens pixeladas (webkit) */
+  image-rendering: pixelated; /* Renderização pixelada para preservar pixels (padrão) */
+  max-height: 192px; /* Altura máxima de 192 pixels */
+  max-width: 192px; /* Largura máxima de 192 pixels */
+  min-height: 128px; /* Altura mínima de 128 pixels */
+  min-width: 128px; /* Largura mínima de 128 pixels */
+}
+/**********************************************************************
+Título
+*******************************************************************/
+
+#CartaTitulo {
+  margin: 0px;
+  padding: 0;
+  border: 0px;
+  text-align: center;
+  display: inline-block;
+}
+
+#CartaTitulo > img {
+  height: 220px;
+  width: 220px;
+}
+/**********************************************************************
+ Baralho 
+************************************************************************/
+
+#BaralhoVirado {
+  position: absolute;
+  bottom: 7vh;
+  width: 15vmin;
+  height: 15vmin;
+  right: 2vw;
+  display: flex;
+  max-width: 180px;
+  max-height: 180px;
+  min-width: 120px;
+  min-height: 120px;
+   
+  filter:
+    drop-shadow(2px 2px 0 rgb(176, 175, 175))
+    drop-shadow(2px 2px 0 rgb(151, 150, 150))
+    drop-shadow(2px 2px 0 #545454);
+}
+
+
+#BaralhoVirado > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* para a imagem preencher toda a div*/
+}
+/**********************************************************************
+Cartas
+*******************************************************************/
+#Cartas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  height: 75%;
+  
+  overflow: hidden;
+  padding: 10px;
+  padding-bottom: 30px;
+}
+#Cartas > * {
+  flex: 0 0 auto;
+  max-width: calc((100% - 7 * 15px) / 8); /* Usa calc para dividir o espaço disponível igualmente entre 8 cartas por linha.
+  Subtrai 7 gaps de 15px (entre as cartas) do total (100%), depois
+  divide o restante por 8 para obter a largura máxima de cada carta. */
+}
+
+/**********************************************************************
+Interface
+*******************************************************************/
+
+#interface {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: calc(100% - 25vh);
+  height: 100vh;
+  margin-left: 25vh;
+  position: relative;
+}
+#Mao {
+  position: relative;
+  width: 100%;
+  height: 30vh;
+  bottom: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border-radius: 20px 20px 0 0;
+  backdrop-filter: blur(10px);
+  margin-top: auto;
+}
+#contaCartas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(249, 249, 249);
+  font-size: 4em;
+  padding: 0.2em 0.5em;
+  border-radius: 5px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+#mesa-jogada {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  height: 50vh;
+  padding: 10px;
+  margin: 10px 0;
+}

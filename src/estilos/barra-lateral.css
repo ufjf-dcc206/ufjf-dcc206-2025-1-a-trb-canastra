@@ -1,0 +1,88 @@
+#menu-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25vh;
+  height: 100vh;
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.2), rgba(41, 128, 185, 0.3));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2vh;
+  z-index: 1000;
+  border-right: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+#menu-divisao {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 12vh);
+  width: 90%;
+  margin-top: 10vh;
+  gap: 40px;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 10px;
+}
+
+#menu {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  font-size: 1.8em;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  white-space: nowrap;}
+#rodada{
+    position: absolute;
+    top: 2vh;
+    font-size: 3em;
+    right: 5vh;
+
+}
+.caixa{
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  border-color: rgba(255, 255, 255, 0.3);
+   font-size: 2.2em;
+  color: #fff;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  border-radius: 15px;
+  text-align: center;
+  letter-spacing: 1px;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+#pontoMeta {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  border-color: rgba(255, 255, 255, 0.3);
+  margin-bottom: 10px;
+}
+
+#seuponto {
+  background: linear-gradient(135deg, #279eae, #229997);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+#caixadescarte {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+#caixamao {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  border-color: rgba(255, 255, 255, 0.3);
+}

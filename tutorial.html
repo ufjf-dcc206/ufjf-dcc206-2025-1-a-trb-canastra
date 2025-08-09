@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canastra 0.5</title>
+    <style>
+      body{
+        background-color: rgb(81, 2, 2);
+        color: white;
+      }
+      h1{
+        text-align: center;
+        margin-top: 30px;
+        font-size: 5em;
+      }
+      p{
+        text-align: center;
+        font-size: 2em;
+      }
+      table{
+        text-align: center;
+        font-size: 2em;
+        margin: 20px auto; /* centraliza a tabela na tela */
+        border-collapse: collapse;
+        width: 500px; /* largura fixa da tabela */
+      }
+      th, td {
+        border: 1px solid #111111;
+        border-radius: 20%;
+        padding: 15px;
+        text-align: center;
+        position: relative; /* permite posicionar a imagem dentro da célula */
+    }
+    td img {
+        position: absolute;
+        top: 50%;
+        right: -170px;
+        transform: translateY(-50%);
+        max-width: 300px; /* limita o tamanho máximo */
+        max-height: 400px; /* opcional, limita altura também */
+        width: auto;      /* mantém a proporção original */
+        height: auto;     /* mantém a proporção original */
+        border: 2px solid white;
+        border-radius: 8px;
+        visibility: hidden;
+        background-color: black;
+        z-index: 100;
+}
+    </style>
+    <script>
+  function imageAppear(id) {
+    document.getElementById(id).style.visibility = "visible";
+  }
+  function imageDisappear(id) {
+    document.getElementById(id).style.visibility = "hidden";
+  }
+</script>
+  </head>
+  <body>
+    <h1>TUTORIAL</h1>
+    <p>O objetivo do jogo é usar as cartas do baralho para formar combinações de pôquer e atingir a pontuação necessária em cada rodada.</p>
+    <p>O baralho tem 4 naipes: copas&hearts;, espadas&spades;, ouros&diams;  e paus&clubs;, com cartas que vão do 2 ao 10, além de J, Q, K e A.</p>
+    <p>Você pode ter no máximo 8 cartas na mão e escolher até 5 delas para formar uma combinação ou para descartar.</p>
+  
+   <table>
+  <tr>
+    <th>Combinação</th>
+    <th>Descrição</th>
+  </tr>
+
+  <tr>
+    <td onmouseover="imageAppear('img-royalflush')" onmouseout="imageDisappear('img-royalflush')">
+      Royal Flush
+      <img id="img-royalflush" src="/src/recursos/Tabela/Royal Flush.png" alt="Royal Flush" />
+    </td>
+    <td>Sequência do mesmo naipe do 10 ao Ás, a mão mais forte.</td>
+  </tr>
+
+  <tr>
+    <td onmouseover="imageAppear('img-straightflush')" onmouseout="imageDisappear('img-straightflush')">
+      Straight Flush
+      <img id="img-straightflush" src="/src/recursos/Tabela/Straight Flush.png" alt="Straight Flush" />
+    </td>
+    <td>Sequência do mesmo naipe.</td>
+  </tr>
+
+  <tr>
+    <td onmouseover="imageAppear('img-quadra')" onmouseout="imageDisappear('img-quadra')">
+      Quadra
+      <img id="img-quadra" src="/src/recursos/Tabela/Quadra.png" alt="Quadra" />
+    </td>
+    <td>4 cartas do mesmo valor.</td>
+  </tr>
+
+  <tr>
+    <td onmouseover="imageAppear('img-fullhouse')" onmouseout="imageDisappear('img-fullhouse')">
+      Full House
+      <img id="img-fullhouse" src="/src/recursos/Tabela/Full House.png" alt="Full House" />
+    </td>
+    <td>3 cartas do mesmo valor + 2 de outro valor.</td>
+  </tr>
+
+  <tr>
+    <td onmouseover="imageAppear('img-flush')" onmouseout="imageDisappear('img-flush')">
+      Flush
+      <img id="img-flush" src="/src/recursos/Tabela/Flush.png" alt="Flush" />
+    </td>
+    <td>5 cartas do mesmo naipe.</td>
+  </tr>
+
+  <tr>
+    <td onmouseover="imageAppear('img-sequencia')" onmouseout="imageDisappear('img-sequencia')">
+      Sequência
+      <img id="img-sequencia" src="/src/recursos/Tabela/Sequencia.png" alt="Sequência" />
+    </td>
+    <td>Cartas em ordem numérica, independente do naipe.</td>
+  </tr>
+
+  <tr>
+    <td onmouseover="imageAppear('img-trinca')" onmouseout="imageDisappear('img-trinca')">
+      Trinca
+      <img id="img-trinca" src="/src/recursos/Tabela/Trinca.png" alt="Trinca" />
+    </td>
+    <td>3 cartas do mesmo valor.</td>
+  </tr>
+
+  <tr>
+    <td onmouseover="imageAppear('img-doispares')" onmouseout="imageDisappear('img-doispares')">
+      Dois Pares
+      <img id="img-doispares" src="/src/recursos/Tabela/Dois Pares.png" alt="Dois Pares" />
+    </td>
+    <td>2 pares diferentes de cartas.</td>
+  </tr>
+
+  <tr>
+    <td onmouseover="imageAppear('img-par')" onmouseout="imageDisappear('img-par')">
+      Par
+      <img id="img-par" src="/src/recursos/Tabela/Par.png" alt="Par" />
+    </td>
+    <td>2 cartas do mesmo valor.</td>
+  </tr>
+
+  <tr>
+    <td onmouseover="imageAppear('img-cartaalta')" onmouseout="imageDisappear('img-cartaalta')">
+      Carta Alta
+      <img id="img-cartaalta" src="/src/recursos/Tabela/Carta Alta.png" alt="Carta Alta" />
+    </td>
+    <td>Só conta a carta mais alta.</td>
+  </tr>
+
+</table>
+
+    <a href="index.html" id="menu">MENU</a>
+    <script type="module" src="src/main.ts"></script>
+  </body>
+</html>
