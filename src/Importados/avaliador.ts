@@ -164,7 +164,7 @@ export function calcularPontuacao(tipo: string, cartas: Carta[], rodada: number)
     4:2.5
   }
   // Fórmula do balatro: multiplicador * (valor base +  soma das cartas)
-  const pontuacaoTotal = config * somaCartas * multiplicaRodada[rodada];
+  const pontuacaoTotal = Math.round(config * somaCartas * multiplicaRodada[rodada]);
   //tirar dps,mas so pra ver que ta funcionando
   console.log(`${tipo}: (${config} × ${somaCartas}) x ${multiplicaRodada[rodada]} = ${pontuacaoTotal}`);
 

@@ -10,41 +10,54 @@
     <div id="interface">
       <h1 id="valor-mao"></h1>
       <div id="mesa-jogada"></div>
+        
       <div id="Mao">
-        <div id="Cartas">
-        </div>
+        <div id="Cartas"></div>
         <div class="caixabotoes" style="gap: 50px;">
           <input class="botoes-partida" type="button" value="JOGAR" id="botaojoga">
           <input class="botoes-partida" type="button" value="DESCARTAR" id="botaodescarta">
         </div>
       </div>
+      
       <div id="BaralhoVirado">
-        <img src="src/recursos/Cartas Grandes/card_back.png" alt="carta virada">
-        <span id="contaCartas">52</span>
+          <img src="src/recursos/Cartas Grandes/card_back.png" alt="carta virada">
+          <span id="contaCartas">52</span>
       </div>
     </div>
+    <!-- Menu -->
     <div id="menu-container">
-      <div id="menu-divisao">
-      <a href="index.html" id="menu">MENU</a>
-      <div id="rodada"> 1</div>
-      <div id="pontoMeta" class="caixa">
-        <div>Meta</div>
-        <div id="meta">0</div>
-      </div>
-      <div class="caixa" id="seuponto">
-        <div>Pontuação</div>
-        <div id="ponto">0</div>
-      </div>
-      <div class="caixa" id="caixamao">
-      <div>Mãos</div>
-      <div id="Jogadas"></div>
-      </div>
+        <div id="menu-divisao"> 
+          <div id="topo">
+            <a href="index.html" id="menu">MENU</a>
+            <div id="rodada"> 1</div>
+          </div>
 
-      <div class="caixa" id="caixadescarte">
-        <div>Descartes:</div>
-        <div id="Descartes"></div>
-      </div>
+<div id="CaixaMetaPontos">
+  
+            <div id="pontoMeta" class="caixa">
+              <div>Meta</div>
+              <div id="meta">0</div>
+            </div>
+            <div class="caixa" id="seuponto">
+              <div>Pontuação</div>
+              <div id="ponto">0</div>
+            </div>
+</div>
+          
+          
+          
+            <div id="CaixaMaoDescarta">
+                <div class="caixa" id="caixamao">
+                  <div>Mãos</div>
+                  <div id="Jogadas"></div>
+                </div>
+                <div class="caixa" id="caixadescarte">
+                    <div>Descartes</div>
+                    <div id="Descartes"></div>
+                </div>
+            </div>
+        </div>
     </div>
-    <script type="module" src="src/main.ts"></script>
+  <script type="module" src="src/main.ts"></script>
   </body>
 </html>
