@@ -1,6 +1,6 @@
 #menu-container {
   height: 100vh;
-  width: 25vh;
+  width: 13vw;
   position: fixed; /* Fica fixo na tela */
   z-index: 1; /* Fica por cima de outros elementos */
   top: 0;
@@ -16,11 +16,13 @@
     display: flex;
     flex-flow: nowrap;
     align-items: center;
-    gap: 5vh;
-    width: 100%;
-    margin: 1vh 1vh;
+    gap: 2vw;
+    font-size: 0.8vw;
+    width: calc(100% - 2vh);
 }
-
+#topo>a{
+  font-size: 1.7vw;
+}
 #menu-divisao {
   position: relative;
   width: 105%;
@@ -68,25 +70,33 @@
 #pontoMeta {
   background: linear-gradient(135deg, #e74c3c, #c0392b);
   border-color: rgba(255, 255, 255, 0.3);
+  
+    font-size: 1.7em;
   margin-bottom: 10px;
 }
 
 #seuponto {
   background: linear-gradient(135deg, #279eae, #229997);
+  
+    font-size: 1.3em;
   border-color: rgba(255, 255, 255, 0.3);
 }
 #caixadescarte {
   background: linear-gradient(135deg, #e74c3c, #c0392b);
+  font-size: 1.3em;
   border-color: rgba(255, 255, 255, 0.3);
 }
+
 
 #caixamao {
   background: linear-gradient(135deg, #3498db, #2980b9);
   border-color: rgba(255, 255, 255, 0.3);
+  font-size: 1.7em;
 }
 
 
 #CaixaMaoDescarta {
+  
       display: flex;
     position: absolute;
     flex-direction: column;
