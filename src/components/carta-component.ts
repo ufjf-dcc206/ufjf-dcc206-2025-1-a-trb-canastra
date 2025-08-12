@@ -57,6 +57,7 @@ class CartaComponent extends HTMLElement {
             image-rendering: pixelated;
             border-radius: 8px;
             transition: all 0.3s ease;
+        
             }
             
             .carta:hover img {
@@ -65,7 +66,7 @@ class CartaComponent extends HTMLElement {
             
             .carta.selecionada img {
             transform: scale(1.2);
-            filter: brightness(1) drop-shadow(0 0 5px rgba(30, 255, 0, 1));
+            filter: brightness(1) drop-shadow(0 0 5px rgba(30, 255, 0, 1)) ;
             }
             
             .carta.negado img {

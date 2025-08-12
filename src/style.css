@@ -1,29 +1,24 @@
 @charset "UTF-8";
 @font-face {
-  font-family: "balatro";
-  src: url(recursos/FonteBalatro.ttf);
+  font-family: "Castelovanio";
+  src: url(recursos/Fontes/fette-unz-fraktur.ttf);
+}
+
+@font-face {
+  font-family: 'Alagard';
+  src: url(recursos/Fontes/Alagard.ttf);
 }
 /**********************************************************************
   ESTILO GERAIS
 ************************************************************************/
 * {
-  font-family: "balatro", monospace;
+  font-family: "Alagard", monospace;
   box-sizing: border-box;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  overflow-x: hidden;
 }
 
 body {
   background-color: rgb(81, 2, 2);
   color: white;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 #modal > h1{
@@ -95,6 +90,15 @@ Título
   height: 100%;
   object-fit: contain; /* para a imagem preencher toda a div*/
 }
+
+#contaCartas {
+position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    color: rgb(249, 249, 249);
+    font-size: 3vw;
+}
 /**********************************************************************
 Cartas
 *******************************************************************/
@@ -133,28 +137,15 @@ Interface
 #Mao {
   position: relative;
   width: 100%;
-  height: 30vh;
+  height: 40vh;
+  gap: 6vh;
   bottom: 5vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 15px;
   border-radius: 20px 20px 0 0;
   backdrop-filter: blur(10px);
-  margin-top: auto;
-}
-#contaCartas {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: rgb(249, 249, 249);
-  font-size: 4em;
-  padding: 0.2em 0.5em;
-  border-radius: 5px;
-  white-space: nowrap;
-  pointer-events: none;
 }
 #mesa-jogada {
   display: flex;
