@@ -36,7 +36,8 @@ export function inicializarBotoes(): void {
     
     //faz os botões chamarem as funções correspondentes
     botjoga?.addEventListener('click', ()=>{
-      if(!botjoga.classList.contains('acabou')){
+      const selecionadas = cartasSelecionadas(mao);
+      if(!(botjoga.classList.contains('acabou')) && selecionadas.length > 0){
         jogacarta();
         nmrJogadas-=1;
         atualizajogada(nmrJogadas)
@@ -44,7 +45,8 @@ export function inicializarBotoes(): void {
       }
     });
     botdesca?.addEventListener('click', () => {
-      if(!botdesca.classList.contains('acabou')){
+      const selecionadas = cartasSelecionadas(mao);
+      if(!(botdesca.classList.contains('acabou')) && selecionadas.length > 0){
         descarta();
         nmrDescartes-=1;
         atualizadescarte(nmrDescartes);
@@ -98,8 +100,6 @@ export function jogacarta() {
 export function descarta(): void {
   // Seleciona as cartas marcadas como 'selecionada' na mão
   const selecionadas = cartasSelecionadas(mao);
-  if (!Array.isArray(selecionadas) || selecionadas.length === 0) return;
-
   // Remove cartas selecionadas da mão, adiciona ao descarte e substitui por novas do baralho
   for (let i = 0; i < selecionadas.length; i++) {
     const indice = mao.indexOf(selecionadas[i]); //função que procura o indice da selecionada[i] na mao e retorna, 
