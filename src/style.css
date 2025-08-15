@@ -15,10 +15,11 @@
   font-family: "Alagard", monospace;
   box-sizing: border-box;
 }
-
+/*adiciona novo cursor personalizado*/
 body {
   background-color: rgb(81, 2, 2);
   color: white;
+  cursor: url('/src/recursos/Imagens/meu-cursor.png'), pointer;
 }
 
 
