@@ -157,17 +157,17 @@ export function calcularPontuacao(tipo: string, cartas: Carta[], rodada: number)
       somaCartas += Number(c.valor); //aqui é so somar o numero direto
     }
   });
-  const multiplicaRodada:Record<number, number> = {
-    1:1,
-    2:1.5,
-    3:2,
-    4:2.5
-  }
+  const multiplicaRodada = (rodada: number): number => {
+    let multi = 1;
+    for(let i=1; i<rodada; i++){
+      multi += 0.5;
+    }
+    return multi;
+  };
   // Fórmula do balatro: multiplicador * (valor base +  soma das cartas)
-  const pontuacaoTotal = Math.round(config * somaCartas * multiplicaRodada[rodada]);
+  const pontuacaoTotal = Math.round(config * somaCartas * multiplicaRodada(rodada));
   //tirar dps,mas so pra ver que ta funcionando
-  console.log(`${tipo}: (${config} × ${somaCartas}) x ${multiplicaRodada[rodada]} = ${pontuacaoTotal}`);
-
+  console.log(`${tipo}: (${config} × ${somaCartas}) x ${multiplicaRodada(rodada)} = ${pontuacaoTotal}`);
   return pontuacaoTotal;
 }
 
