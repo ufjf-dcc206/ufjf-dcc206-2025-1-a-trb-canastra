@@ -20,6 +20,13 @@
   position: relative
 }
 
+#modal > h1{
+  text-align: center;
+  font-size: 4vw;
+}
+#modal >p{
+  font-size: 2vw;
+}
 #botaoModal {
   background: linear-gradient(135deg, #3498db, #2980b9);
   color: rgb(255, 255, 255);

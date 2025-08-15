@@ -1,3 +1,4 @@
+/* cSpell:disable */
 import { Carta } from './carta_baralho.js';
 
 /**********************************************************************
@@ -74,7 +75,7 @@ export function transicaoDeRodadaNormal(nmr: number): Promise<boolean> {
     janela.appendChild(modal);
     document.body.appendChild(janela);
     const bot = document.createElement('button');
-    modal.innerHTML = `<h1>Parabéns! Você atingiu a meta da rodada ${nmr}!</h1><p>Iniciando a próxima rodada com uma meta maior</p>`;
+    modal.innerHTML = `<h1>Parabens! Você atingiu a meta da rodada ${nmr}!</h1><p>Iniciando a proxima rodada com uma meta maior</p>`;
     modal.appendChild(bot);
     bot.id = 'botaoModal';
     bot.textContent = 'Continuar';
@@ -84,7 +85,7 @@ export function transicaoDeRodadaNormal(nmr: number): Promise<boolean> {
     };
   });
 }
-export function rodadaFinal(nmr: number): Promise<boolean> {
+export function perdeu(nmr: number): Promise<boolean> {
   return new Promise((resolve) => {
     const janela = document.createElement('div');
     janela.id = 'transicao';
@@ -93,10 +94,10 @@ export function rodadaFinal(nmr: number): Promise<boolean> {
     janela.appendChild(modal);
     document.body.appendChild(janela);
     const bot = document.createElement('button');
-    modal.innerHTML = `<h1>Parabéns! Você atingiu a meta da rodada ${nmr}!</h1><p>Você venceu o jogo!</p>`;
+    modal.innerHTML = `<h1>Voce perdeu o jogo!</h1><p> Voce nao atingiu a meta da rodada  ${nmr} e sua mao ja zerou!</p>`;
     modal.appendChild(bot);
     bot.id = 'botaoModal';
-    bot.textContent = 'Continuar';
+    bot.textContent = 'Voltar para o menu';
     bot.onclick = () => {
       document.body.removeChild(janela);
       resolve(true);
