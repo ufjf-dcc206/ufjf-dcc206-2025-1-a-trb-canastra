@@ -1,7 +1,7 @@
 import { Carta,criarBaralho, pegarCarta } from './carta_baralho.js';
 import { cartasSelecionadas } from './carta_baralho.js';
 import { renderiza, atualizarPontuacaoInterface, atualizaMao, atualizarBaralhoContagem, atualizaMeta,
-   atualizaRodada, transicaoDeRodadaNormal, rodadaFinal, 
+   atualizaRodada, transicaoDeRodadaNormal, perdeu, 
    renderizaMesaJogada,
    atualizajogada,
    atualizadescarte} from './interface.js';
@@ -41,6 +41,7 @@ export function inicializarBotoes(): void {
         jogacarta();
         nmrJogadas-=1;
         atualizajogada(nmrJogadas)
+        verificaPontoMeta();
         atualizarEstadoBotoes();
       }
     });
@@ -91,7 +92,6 @@ export function jogacarta() {
   
   pontos += pontuacaoGanha;
   atualizarPontuacaoInterface(pontos);
-  verificaPontoMeta();
 
   // Descarta todas as cartas selecionadas
   descarta();
@@ -122,7 +122,7 @@ export function descarta(): void {
 }
 
 export async function verificaPontoMeta(): Promise<void> {
-  if (pontos >= meta && rodada < 4) {
+  if (pontos >= meta) {
     if(await transicaoDeRodadaNormal(rodada)){
       rodada += 1;
       meta *= 2;
@@ -138,10 +138,11 @@ export async function verificaPontoMeta(): Promise<void> {
       atualizaMeta(meta);
       atualizaRodada(rodada);
     }
-  }else if (pontos >= meta && rodada === 4) {
-    if(await rodadaFinal(rodada)){
-      // Redireciona para página de vitória
-      window.location.href = 'vitoria.html';
-    }
+  }
+if (pontos < meta && nmrJogadas === 0) {
+  if(await perdeu(rodada)){
+    // Redireciona para página inicial após derrota
+    window.location.href = 'index.html';
+  }
 }
 }

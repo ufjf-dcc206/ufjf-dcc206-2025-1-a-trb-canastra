@@ -82,9 +82,9 @@ export function avaliarMao(selecionadas: Carta[]): { pontuacao: string, cartas: 
       return { pontuacao: "Flush", cartas: selecionadas };
     }
     
-    // Sequência: valores em ordem
+    // Sequencia: valores em ordem
     if(eSequencia(valoresNumericos)) {
-      return { pontuacao: "Sequência", cartas: selecionadas };
+      return { pontuacao: "Sequencia", cartas: selecionadas };
     }
   }
 
@@ -133,7 +133,7 @@ export function calcularPontuacao(tipo: string, cartas: Carta[], rodada: number)
     "Quadra":  7 , 
     "Full House": 4 ,
     "Flush":  4 ,
-    "Sequência":  4 , 
+    "Sequencia":  4 , 
     "Trinca":  3 , 
     "Dois Pares":  2 , 
     "Par":  2 , 

@@ -31,17 +31,17 @@
         border-radius: 20%;
         padding: 15px;
         text-align: center;
-        position: relative; /* permite posicionar a imagem dentro da célula */
+        position: relative; /* permite posicionar a imagem dentro da celula */
     }
     td img {
         position: absolute;
         top: 50%;
         right: -170px;
         transform: translateY(-50%);
-        max-width: 300px; /* limita o tamanho máximo */
-        max-height: 400px; /* opcional, limita altura também */
-        width: auto;      /* mantém a proporção original */
-        height: auto;     /* mantém a proporção original */
+        max-width: 300px; /* limita o tamanho maximo */
+        max-height: 400px; /* opcional, limita altura tambem */
+        width: auto;      /* mantem a proporcao original */
+        height: auto;     /* mantem a proporcao original */
         border: 2px solid white;
         border-radius: 8px;
         visibility: hidden;
@@ -60,17 +60,17 @@
   </head>
   <body>
     <h1>TUTORIAL</h1>
-      <p>O objetivo do jogo é usar as cartas do baralho para formar combinações de pôquer e atingir a pontuação necessária em cada rodada.</p>
-      <p>O baralho tem 4 naipes: copas &hearts;, espadas &spades;, ouros &diams; e paus &clubs;, com cartas que vão do 2 ao 10, além de J, Q, K e A, você pode ter no máximo 8 cartas na mão e escolher até 5 delas para jogar ou até 5 para descartar.
-      <br>As cartas jogadas podem formar combinações como: Carta Alta, Par, Dois Pares, Trinca, Sequência, Flush, Full House, Quadra, Straight Flush e Royal Flush.</br>
-      <br>Apenas a maior combinação formada pontua, e ela é calculada somando o valor das cartas (figuras valem 10 pontos, ases valem 15) e multiplicando pela raridade da mão. Você pode jogar no máximo 4 mãos e descartar no máximo 3 vezes por rodada.</br>
-      <br>Para vencer a rodada, é preciso atingir a pontuação do desafio, que começa em 100 pontos. A cada nova rodada, a pontuação necessária dobra. Se, após todas as mãos disponíveis, você não atingir a pontuação necessária, será derrotado.</br></p>
+      <p>O objetivo do jogo e usar as cartas do baralho para formar combinacoes de poquer e atingir a pontuacao necessaria em cada rodada.</p>
+      <p>O baralho tem 4 naipes: copas &hearts;, espadas &spades;, ouros &diams; e paus &clubs;, com cartas que vao do 2 ao 10, alem de J, Q, K e A, voce pode ter no maximo 8 cartas na mao e escolher ate 5 delas para jogar ou ate 5 para descartar.
+      <br>As cartas jogadas podem formar combinacoes como: Carta Alta, Par, Dois Pares, Trinca, Sequencia, Flush, Full House, Quadra, Straight Flush e Royal Flush.</br>
+      <br>Apenas a maior combinacao formada pontua, e ela e calculada somando o valor das cartas (figuras valem 10 pontos, ases valem 15) e multiplicando pela raridade da mao. Voce pode jogar no maximo 4 maos e descartar no maximo 3 vezes por rodada.</br>
+      <br>Para vencer a rodada, e preciso atingir a pontuacao do desafio, que comeca em 100 pontos. A cada nova rodada, a pontuacao necessaria dobra. Se, apos todas as maos disponiveis, voce nao atingir a pontuacao necessaria, sera derrotado.</br></p>
 
-  
+      
    <table>
   <tr>
-    <th>Combinação</th>
-    <th>Descrição</th>
+    <th>Combinacao</th>
+    <th>Descricao</th>
   </tr>
 
   <tr>
@@ -78,7 +78,7 @@
       Royal Flush
       <img id="img-royalflush" src="/src/recursos/Tabela/Royal Flush.png" alt="Royal Flush" />
     </td>
-    <td>Sequência do mesmo naipe do 10 ao Ás, a mão mais forte.</td>
+    <td>Sequencia do mesmo naipe do 10 ao As, a mao mais forte.</td>
   </tr>
 
   <tr>
@@ -86,7 +86,7 @@
       Straight Flush
       <img id="img-straightflush" src="/src/recursos/Tabela/Straight Flush.png" alt="Straight Flush" />
     </td>
-    <td>Sequência do mesmo naipe.</td>
+    <td>Sequencia do mesmo naipe.</td>
   </tr>
 
   <tr>
@@ -115,10 +115,10 @@
 
   <tr>
     <td onmouseover="imageAppear('img-sequencia')" onmouseout="imageDisappear('img-sequencia')">
-      Sequência
-      <img id="img-sequencia" src="/src/recursos/Tabela/Sequencia.png" alt="Sequência" />
+      Sequencia
+      <img id="img-sequencia" src="/src/recursos/Tabela/Sequencia.png" alt="Sequencia" />
     </td>
-    <td>Cartas em ordem numérica, independente do naipe.</td>
+    <td>Cartas em ordem numerica, independente do naipe.</td>
   </tr>
 
   <tr>
@@ -150,7 +150,7 @@
       Carta Alta
       <img id="img-cartaalta" src="/src/recursos/Tabela/Carta Alta.png" alt="Carta Alta" />
     </td>
-    <td>Só conta a carta mais alta.</td>
+    <td>Somente a carta mais alta conta.</td>
   </tr>
 
 </table>
