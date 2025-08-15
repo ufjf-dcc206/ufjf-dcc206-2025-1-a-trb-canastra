@@ -152,3 +152,10 @@ Interface
   padding: 10px;
   margin: 10px 0;
 }
+
+.botoes-menu, .botoes-partida, button, input[type="button"] {
+  cursor: url('/src/recursos/Imagens/meu-cursor.png'), pointer !important;
+}
+
+
+

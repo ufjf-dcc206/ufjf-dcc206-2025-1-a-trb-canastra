@@ -57,6 +57,7 @@ class CartaComponent extends HTMLElement {
             image-rendering: pixelated;
             border-radius: 8px;
             transition: all 0.3s ease;
+            cursor: url('/src/recursos/Imagens/meu-cursor.png'), pointer;
         
             }
             
