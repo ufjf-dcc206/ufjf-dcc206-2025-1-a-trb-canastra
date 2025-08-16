@@ -4,22 +4,24 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Canastra 0.5</title>
+    <title> Cardstlevania 0.5</title>
     <style>
-      body{
-        background-color: rgb(81, 2, 2);
-        color: white;
+      body {
+        background: url('src/recursos/Imagens/tutorial.jpg') no-repeat center center fixed;
+        background-size: cover;
+        margin: 0;
+        min-height: 100vh;
       }
-      h1{
+      h1 {
         text-align: center;
         margin-top: 30px;
         font-size: 5em;
       }
-      p{
+      p {
         text-align: center;
         font-size: 2em;
       }
-      table{
+      table {
         text-align: center;
         font-size: 2em;
         margin: 20px auto;
@@ -28,7 +30,7 @@
       }
       th, td {
         border: 1px solid #111111;
-        border-radius: 8px; /* corrigido para 8px */
+        border-radius: 8px;
         padding: 15px;
         text-align: center;
         position: relative;
@@ -45,7 +47,7 @@
         border: 2px solid white;
         border-radius: 8px;
         visibility: hidden;
-        background-color: black;
+        background-color: transparent;
         z-index: 100;
       }
     </style>
@@ -76,112 +78,112 @@
       </tr>
       <tr>
         <td tabindex="0"
-      onmouseover="imageAppear('img-royalflush')"
-      onmouseout="imageDisappear('img-royalflush')"
-      onfocus="imageAppear('img-royalflush')"
-      onblur="imageDisappear('img-royalflush')">
-    Royal Flush
-    <img id="img-royalflush" src="/src/recursos/Tabela/Royal Flush.png" alt="Royal Flush" />
-  </td>
+          onmouseover="imageAppear('img-royalflush')"
+          onmouseout="imageDisappear('img-royalflush')"
+          onfocus="imageAppear('img-royalflush')"
+          onblur="imageDisappear('img-royalflush')">
+          Royal Flush
+          <img id="img-royalflush" src="/src/recursos/Tabela/Royal Flush.png" alt="Royal Flush" />
+        </td>
         <td>Sequência do mesmo naipe do 10 ao Ás, a mão mais forte.</td>
       </tr>
       <tr>
         <td tabindex="0"
-      onmouseover="imageAppear('img-straightflush')"
-      onmouseout="imageDisappear('img-straightflush')"
-      onfocus="imageAppear('img-straightflush')"
-      onblur="imageDisappear('img-straightflush')">
-    Straight Flush
-    <img id="img-straightflush" src="/src/recursos/Tabela/Straight Flush.png" alt="Straight Flush" />
-  </td>
+          onmouseover="imageAppear('img-straightflush')"
+          onmouseout="imageDisappear('img-straightflush')"
+          onfocus="imageAppear('img-straightflush')"
+          onblur="imageDisappear('img-straightflush')">
+          Straight Flush
+          <img id="img-straightflush" src="/src/recursos/Tabela/Straight Flush.png" alt="Straight Flush" />
+        </td>
         <td>Sequência do mesmo naipe.</td>
       </tr>
       <tr>
         <td tabindex="0"
-      onmouseover="imageAppear('img-quadra')"
-      onmouseout="imageDisappear('img-quadra')"
-      onfocus="imageAppear('img-quadra')"
-      onblur="imageDisappear('img-quadra')">
-    Quadra
-    <img id="img-quadra" src="/src/recursos/Tabela/Quadra.png" alt="Quadra" />
-  </td>
+          onmouseover="imageAppear('img-quadra')"
+          onmouseout="imageDisappear('img-quadra')"
+          onfocus="imageAppear('img-quadra')"
+          onblur="imageDisappear('img-quadra')">
+          Quadra
+          <img id="img-quadra" src="/src/recursos/Tabela/Quadra.png" alt="Quadra" />
+        </td>
         <td>4 cartas do mesmo valor.</td>
       </tr>
       <tr>
         <td tabindex="0"
-      onmouseover="imageAppear('img-fullhouse')"
-      onmouseout="imageDisappear('img-fullhouse')"
-      onfocus="imageAppear('img-fullhouse')"
-      onblur="imageDisappear('img-fullhouse')">
-    Full House
-    <img id="img-fullhouse" src="/src/recursos/Tabela/Full House.png" alt="Full House" />
-  </td>
+          onmouseover="imageAppear('img-fullhouse')"
+          onmouseout="imageDisappear('img-fullhouse')"
+          onfocus="imageAppear('img-fullhouse')"
+          onblur="imageDisappear('img-fullhouse')">
+          Full House
+          <img id="img-fullhouse" src="/src/recursos/Tabela/Full House.png" alt="Full House" />
+        </td>
         <td>3 cartas do mesmo valor + 2 de outro valor.</td>
       </tr>
       <tr>
         <td tabindex="0"
-      onmouseover="imageAppear('img-flush')"
-      onmouseout="imageDisappear('img-flush')"
-      onfocus="imageAppear('img-flush')"
-      onblur="imageDisappear('img-flush')">
-    Flush
-    <img id="img-flush" src="/src/recursos/Tabela/Flush.png" alt="Flush" />
-  </td>
+          onmouseover="imageAppear('img-flush')"
+          onmouseout="imageDisappear('img-flush')"
+          onfocus="imageAppear('img-flush')"
+          onblur="imageDisappear('img-flush')">
+          Flush
+          <img id="img-flush" src="/src/recursos/Tabela/Flush.png" alt="Flush" />
+        </td>
         <td>5 cartas do mesmo naipe.</td>
       </tr>
       <tr>
         <td tabindex="0"
-      onmouseover="imageAppear('img-sequencia')"
-      onmouseout="imageDisappear('img-sequencia')"
-      onfocus="imageAppear('img-sequencia')"
-      onblur="imageDisappear('img-sequencia')">
-    Sequência
-    <img id="img-sequencia" src="/src/recursos/Tabela/Sequencia.png" alt="Sequência" />
-  </td>
+          onmouseover="imageAppear('img-sequencia')"
+          onmouseout="imageDisappear('img-sequencia')"
+          onfocus="imageAppear('img-sequencia')"
+          onblur="imageDisappear('img-sequencia')">
+          Sequência
+          <img id="img-sequencia" src="/src/recursos/Tabela/Sequencia.png" alt="Sequência" />
+        </td>
         <td>Cartas em ordem numérica, independente do naipe.</td>
       </tr>
       <tr>
         <td tabindex="0"
-      onmouseover="imageAppear('img-trinca')"
-      onmouseout="imageDisappear('img-trinca')"
-      onfocus="imageAppear('img-trinca')"
-      onblur="imageDisappear('img-trinca')">
-    Trinca
-    <img id="img-trinca" src="/src/recursos/Tabela/Trinca.png" alt="Trinca" />
-  </td>
+          onmouseover="imageAppear('img-trinca')"
+          onmouseout="imageDisappear('img-trinca')"
+          onfocus="imageAppear('img-trinca')"
+          onblur="imageDisappear('img-trinca')">
+          Trinca
+          <img id="img-trinca" src="/src/recursos/Tabela/Trinca.png" alt="Trinca" />
+        </td>
         <td>3 cartas do mesmo valor.</td>
       </tr>
       <tr>
         <td tabindex="0"
-      onmouseover="imageAppear('img-doispares')"
-      onmouseout="imageDisappear('img-doispares')"
-      onfocus="imageAppear('img-doispares')"
-      onblur="imageDisappear('img-doispares')">
-    Dois Pares
-    <img id="img-doispares" src="/src/recursos/Tabela/Dois Pares.png" alt="Dois Pares" />
-  </td>
+          onmouseover="imageAppear('img-doispares')"
+          onmouseout="imageDisappear('img-doispares')"
+          onfocus="imageAppear('img-doispares')"
+          onblur="imageDisappear('img-doispares')">
+          Dois Pares
+          <img id="img-doispares" src="/src/recursos/Tabela/Dois Pares.png" alt="Dois Pares" />
+        </td>
         <td>2 pares diferentes de cartas.</td>
       </tr>
       <tr>
         <td tabindex="0"
-      onmouseover="imageAppear('img-par')"
-      onmouseout="imageDisappear('img-par')"
-      onfocus="imageAppear('img-par')"
-      onblur="imageDisappear('img-par')">
-    Par
-    <img id="img-par" src="/src/recursos/Tabela/Par.png" alt="Par" />
-  </td>
+          onmouseover="imageAppear('img-par')"
+          onmouseout="imageDisappear('img-par')"
+          onfocus="imageAppear('img-par')"
+          onblur="imageDisappear('img-par')">
+          Par
+          <img id="img-par" src="/src/recursos/Tabela/Par.png" alt="Par" />
+        </td>
         <td>2 cartas do mesmo valor.</td>
       </tr>
       <tr>
         <td tabindex="0"
-      onmouseover="imageAppear('img-cartaalta')"
-      onmouseout="imageDisappear('img-cartaalta')"
-      onfocus="imageAppear('img-cartaalta')"
-      onblur="imageDisappear('img-cartaalta')">
-    Carta Alta
-    <img id="img-cartaalta" src="/src/recursos/Tabela/Carta Alta.png" alt="Carta Alta" />
-  </td>
+          onmouseover="imageAppear('img-cartaalta')"
+          onmouseout="imageDisappear('img-cartaalta')"
+          onfocus="imageAppear('img-cartaalta')"
+          onblur="imageDisappear('img-cartaalta')">
+          Carta Alta
+          <img id="img-cartaalta" src="/src/recursos/Tabela/Carta Alta.png" alt="Carta Alta" />
+        </td>
         <td>Somente a carta mais alta conta.</td>
       </tr>
     </table>
@@ -191,3 +193,4 @@
     <script type="module" src="src/main.ts"></script>
   </body>
 </html>
+
