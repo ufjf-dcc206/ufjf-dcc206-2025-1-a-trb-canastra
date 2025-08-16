@@ -19,7 +19,7 @@
 body {
   background-color: rgb(81, 2, 2);
   color: white;
-  cursor: url('/src/recursos/Imagens/meu-cursor.png'), pointer;
+  cursor: url('/src/recursos/Imagens/meu-cursor1.png'), pointer;
 }
 
 
@@ -154,7 +154,7 @@ Interface
 }
 
 .botoes-menu, .botoes-partida, button, input[type="button"] {
-  cursor: url('/src/recursos/Imagens/meu-cursor.png'), pointer !important;
+  cursor: url('/src/recursos/Imagens/meu-cursor2.png'), pointer !important;
 }
 
 
