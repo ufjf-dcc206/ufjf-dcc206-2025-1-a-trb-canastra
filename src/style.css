@@ -28,7 +28,7 @@ html, body {
   width: 100%;
   margin: 0;
   padding: 0;
-  cursor: url('src/recursos/Imagens/meu-cursor2.png'), pointer;
+  cursor: url('src/recursos/Imagens/meu-cursor1.png'), pointer;
 }
 
 h1#valor-mao {
