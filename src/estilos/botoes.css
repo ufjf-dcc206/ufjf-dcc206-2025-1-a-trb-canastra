@@ -1,3 +1,8 @@
+button, input[type="button"],a
+{
+  cursor: url('/src/recursos/Imagens/meu-cursor2.png'), pointer !important;
+}
+
 .caixabotoes {
   display: flex;
   justify-content: center;
