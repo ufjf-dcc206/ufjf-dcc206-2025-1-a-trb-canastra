@@ -155,6 +155,9 @@ Interface
 
 .botoes-menu, .botoes-partida, button, input[type="button"] {
   cursor: url('/src/recursos/Imagens/meu-cursor2.png'), pointer !important;
+  a[href="index.html"] {
+  cursor: url('/src/recursos/Imagens/meu-cursor2.png'), pointer !important;
+  }
 }
 
 
