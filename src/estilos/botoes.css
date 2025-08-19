@@ -22,7 +22,7 @@ button, input[type="button"],a
   color: white;
   text-align: center;
   text-decoration: none;
-  font-size: 3vw;
+  font-size: min(3vw, 48px);
   line-height: min(150px, 24vh);
   white-space: nowrap;
   border: none;
