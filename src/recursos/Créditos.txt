@@ -31,7 +31,10 @@ Playing Cards Pack
 
 4: Imagens do cursor : https://sweezy-cursors.com/cursor/dark-gothic-arrow-coss/
 
-5: Imagens de fundo: https://liminal-space-dev.itch.io/free-horror-dark-castle-vn-backgrounds
+5: Imagens de fundo:
+Menu: https://liminal-space-dev.itch.io/free-horror-dark-castle-vn-backgrounds  
+
+Tutorial:https://br.freepik.com/vetores-gratis/fundo-de-mesa-de-poquer-de-design-plano_94956219.htm#fromView=search&page=1&position=6&uuid=e68bc7d5-fd97-40ee-b26f-affaff5b7914&query=pixel+poker
 
 6: Botões: https://z-spider.itch.io/ornate-retro-ui-free-sample
 	
