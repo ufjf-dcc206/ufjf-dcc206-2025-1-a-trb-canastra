@@ -6,7 +6,7 @@
   top: 0;
   left: 0;
   background-color: #222; /* Cor de fundo escura */
-  padding: 20px;
+  padding: 1.5vw;
   color: white;
   box-sizing: border-box; 
   
@@ -68,7 +68,7 @@
   background: linear-gradient(135deg, #e74c3c, #c0392b);
   
     font-size: 2vw;
-  margin-bottom: 10px;
+  margin-bottom: 0.5vh;
 }
 
 #seuponto {
