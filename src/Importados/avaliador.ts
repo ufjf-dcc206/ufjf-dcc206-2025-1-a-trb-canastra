@@ -5,8 +5,8 @@ import type { Naipe } from './carta_baralho.js';
  FUNÇÕES DE AVALIAÇÃO E PONTUAÇÃO DE MÃOS
 ************************************************************************/
 
-//função que vai avaliar as cartas selecionadas, contar naipes e cartas iguais ou sequenciais e retornar para a CalculaPontuação
-//Retorna o tipo de mão e as cartas pontuantes
+//função que vai avaliar as cartas selecionadas, contar naipes e cartas iguais ou sequenciais
+//  e retornar para a CalculaPontuação
 export function avaliarMao(selecionadas: Carta[]): { pontuacao: string, cartas: Carta[] } {  
     // Record para transformar os valores das cartas em números para facilitar comparações
   const numeravalor: Record<string, number> = 
