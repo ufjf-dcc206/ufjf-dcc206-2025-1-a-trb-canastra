@@ -19,7 +19,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(1px);
       background-color: rgba(0, 0, 0, 0.2);
       z-index: -1;
       }
@@ -30,7 +30,10 @@
       }
       p {
         text-align: center;
-        font-size: 2em;
+        font-size: 2vw;
+        text-indent: 1vw;
+        margin-left: 2vw;
+        margin-right: 2vw;
       }
       table {
         text-align: center;
@@ -54,7 +57,7 @@
       td img {
         position: absolute;
         top: 50%;
-        right: -170px;
+        left: -150%;
         transform: translateY(-50%);
         max-width: 300px;
         max-height: 400px;
@@ -67,17 +70,16 @@
         z-index: 100;
       }
       .botao {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 220px;
-      height: 70px; 
-      background: url('/src/recursos/Imagens/botao2.png') no-repeat center center;
-      background-size: 100% 100%;
-      color: white;
-      text-decoration: none;
-      font-size: 1.5em;
-      font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20vw;
+        height: 14vh;
+        background: url(/src/recursos/imagens/botao2.png) no-repeat center center;
+        background-size: 100% 100%;
+        color: white;
+        text-decoration: none;
+        font-size: 3.5vw;
       }
     </style>
     <script>
@@ -92,15 +94,11 @@
   <body>
     <h1>TUTORIAL</h1>
     <p>
-      O objetivo do jogo é usar as cartas do baralho para formar combinações de pôquer e atingir a pontuação necessária em cada rodada.
+      O objetivo do jogo é usar as cartas do baralho para formar combinações de pôquer e atingir a pontuação necessária em cada rodada. O baralho tem 4 naipes: copas &hearts;, espadas &spades;, ouros &diams; e paus &clubs;, com cartas que vão do 2 ao 10, além de J, Q, K e A.
+      <br><br>
+      Você pode ter no máximo 8 cartas na mão e escolher até 5 delas para jogar ou até 5 para descartar. As cartas jogadas podem formar combinações como: Carta Alta, Par, Dois Pares, Trinca, Sequência. Todas as combinações estão na tabela abaixo, com suas descrições. 
     </p>
-    <p>
-      O baralho tem 4 naipes: copas &hearts;, espadas &spades;, ouros &diams; e paus &clubs;, com cartas que vão do 2 ao 10, além de J, Q, K e A. Você pode ter no máximo 8 cartas na mão e escolher até 5 delas para jogar ou até 5 para descartar.<br>
-      As cartas jogadas podem formar combinações como: Carta Alta, Par, Dois Pares, Trinca, Sequência, Flush, Full House, Quadra, Straight Flush e Royal Flush.<br>
-      Apenas a maior combinação formada pontua, e ela é calculada somando o valor das cartas (figuras valem 10 pontos, ases valem 15) e multiplicando pela raridade da mão. Você pode jogar no máximo 4 mãos e descartar no máximo 3 vezes por rodada.<br>
-      Para vencer a rodada, é preciso atingir a pontuação do desafio, que começa em 100 pontos. A cada nova rodada, a pontuação necessária dobra e o valor das mãos aumenta. Se, após todas as mãos disponíveis, você não atingir a pontuação necessária, será derrotado.
-    </p>
-    <table>
+     <table>
       <tr>
         <th>Combinação</th>
         <th>Descrição</th>
@@ -216,6 +214,12 @@
         <td>Somente a carta mais alta conta.</td>
       </tr>
     </table>
+    <p>
+      Apenas a maior combinação formada pontua, e ela é calculada somando o valor das cartas (figuras valem 10 pontos, ases valem 15) e multiplicando pela raridade da mão. Você pode jogar no máximo 4 mãos e descartar no máximo 3 vezes por rodada.
+      <br><br>
+      Para vencer a rodada, é preciso atingir a pontuação do desafio, que começa em 100 pontos. A cada nova rodada, a pontuação necessária dobra e o valor das mãos aumenta. Se, após todas as mãos disponíveis, você não atingir a pontuação necessária, será derrotado.
+    </p>
+   
     <div class="caixabotoes">
     <a href="index.html" class="botao">MENU</a>
     </div>
