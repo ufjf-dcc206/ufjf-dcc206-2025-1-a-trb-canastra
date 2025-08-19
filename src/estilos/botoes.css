@@ -1,6 +1,6 @@
 button, input[type="button"],a
 {
-  cursor: url('/src/recursos/Imagens/meu-cursor2.png'), pointer !important;
+  cursor: url('/src/recursos/Imagens/meu-cursor2.png'), pointer;
 }
 
 .caixabotoes {
@@ -14,19 +14,18 @@ button, input[type="button"],a
 }
 
 .botoes-menu {
-    display: inline-block;
-    display: inline-block;
-    width: 320px;
-    height: 120px;
-    background: url('/src/recursos/Imagens/botao.png') no-repeat center center;
-    background-size: cover;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    font-size: 2.3em;
-    line-height: 120px;
-    white-space: nowrap;
-    border: none;
+  display: inline-block;
+  width: min(300px, 28vw);
+  height: min(150px, 24vh);
+  background: url(/src/recursos/imagens/botao.png) no-repeat center;
+  background-size: 100% 100%;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 3vw;
+  line-height: min(150px, 24vh);
+  white-space: nowrap;
+  border: none;
 }
 
 .botoes-partida {
