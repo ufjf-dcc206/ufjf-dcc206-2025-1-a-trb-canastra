@@ -14,24 +14,19 @@ button, input[type="button"],a
 }
 
 .botoes-menu {
-  color: white;
-  padding: 7vh 5vw;
-  text-align: center;
-  text-decoration: none;
-  font-size: 4em;
-  border-radius: 12px;
-  box-shadow: inset 0px -10px 20px 0px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  white-space: nowrap;
-  min-width: 150px;
-}
-
-.botoes-menu:first-child {
-  background: linear-gradient(135deg, #53cc57, #388e3c);
-}
-
-.botoes-menu:nth-child(2) {
-  background: linear-gradient(135deg, #f44336, #d32f2f);
+    display: inline-block;
+    display: inline-block;
+    width: 320px; /* ajuste para caber no tamanho da imagem */
+    height: 120px;
+    background: url('/src/recursos/Imagens/botao.png') no-repeat center center;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2.3em;
+    line-height: 120px; /* centraliza verticalmente o texto */
+    white-space: nowrap;
+    border: none;
 }
 
 .botoes-partida {
