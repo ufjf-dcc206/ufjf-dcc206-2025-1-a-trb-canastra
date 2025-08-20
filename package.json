@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc src/main.ts",
-    "preview": "vite preview",
+    "build": "vite build",
+    "preview": "vite preview --port 8080",
     "test": "vitest",
     "index": "ts-node-dev -respawn -transpile-only main.ts"
   },
