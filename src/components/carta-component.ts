@@ -41,7 +41,7 @@ class CartaComponent extends HTMLElement {
             display: inline-block;
             transition: all 0.3s ease;
             position: relative;
-            cursor: url('./src/recursos/imagens/meu-cursorCLICK.png'), pointer;
+            cursor: var(--cursor-click);
             }
             
             .carta img {

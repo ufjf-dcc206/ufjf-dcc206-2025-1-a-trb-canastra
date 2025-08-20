@@ -41,7 +41,7 @@ perdeu a rodada
   height: 60px;
   border: none;
   border-radius: 10px;
-  cursor: url('./src/recursos/imagens/meu-cursorCLICK.png'), pointer;
+  cursor: var(--cursor-click);
   position: absolute;
   bottom: -20px;
   left: 50%;

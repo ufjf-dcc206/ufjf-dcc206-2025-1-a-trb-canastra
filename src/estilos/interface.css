@@ -52,9 +52,7 @@ Cartas e sua responsividade
 }
 #Cartas > * {
   flex: 0 0 auto;
-  max-width: calc((100% - 7 * 15px) / 8); /* Usa calc para dividir o espaço disponível igualmente entre 8 cartas por linha.
-  Subtrai 7 gaps de 15px (entre as cartas) do total (100%), depois
-  divide o restante por 8 para obter a largura máxima de cada carta. */
+  max-width: calc((100% - 7 * 15px) / 8); 
 }
 
 /**********************************************************************

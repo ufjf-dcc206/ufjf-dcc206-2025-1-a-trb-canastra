@@ -1,9 +1,11 @@
-const menuMusic = new Audio('./src/recursos/efeitos sonoros/musicas/menu.mp3');
+import { menuMp3, partidaMp3 } from '../music-assets.js';
+
+const menuMusic = new Audio(menuMp3);
 menuMusic.loop = true; // Coloca a música em loop
 menuMusic.volume = 0.5;
 menuMusic.autoplay = true; // Ajusta o volume da música do menu
 
-const partidaMusic = new Audio('./src/recursos/efeitos sonoros/musicas/partida.mp3');
+const partidaMusic = new Audio(partidaMp3);
 partidaMusic.loop = true; // Coloca a música da partida em loop
 partidaMusic.volume = 0.5;
 partidaMusic.autoplay = true; // Ajusta o volume da música da partida

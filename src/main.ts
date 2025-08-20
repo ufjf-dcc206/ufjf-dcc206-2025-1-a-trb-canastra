@@ -6,6 +6,7 @@ import "./estilos/modal.css"
 import "./estilos/interface.css";
 import "./components/carta-component"; //Importa o componente de carta
 import "./assets-loader.js"; // Forçar carregamento dos assets das cartas
+import { initializeCursors } from './cursor-assets.js';
 import { criarBaralho, pegarCarta } from './Importados/carta_baralho.js';
 import { inicializarEstado, Monitoramento, inicializarBotoes } from './Importados/jogo.js';
 import { renderiza, atualizarBaralhoContagem, atualizaMeta, inicializarCartaVerso} from './Importados/interface.js';
@@ -22,6 +23,9 @@ FUNÇÃO QUE INICIA TUDO
 
 
 function iniciarJogo(): void {
+  // Inicializar cursores personalizados
+  initializeCursors();
+  
   // Cria o baralho e distribui cartas
   const baralho = criarBaralho();
   const mao = pegarCarta(baralho, 8);

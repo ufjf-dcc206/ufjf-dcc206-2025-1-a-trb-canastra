@@ -29,7 +29,6 @@ export function renderiza(mao: Carta[]): void {
       carta.setAttribute('value', `${i}`);
       const cartaImg = getCartaAsset(mao[i].valor, mao[i].naipe);
       carta.innerHTML = `<img src="${cartaImg}" alt="">`;
-      carta.style.cursor = "url('./src/recursos/imagens/meu-cursorCLICK.png'), pointer";
       // Removed onclick since it's now handled inside the Web Component
       maocarta.appendChild(carta);
     }
