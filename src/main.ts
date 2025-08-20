@@ -10,9 +10,11 @@ import { criarBaralho, pegarCarta } from './Importados/carta_baralho.js';
 import { inicializarEstado, Monitoramento, inicializarBotoes } from './Importados/jogo.js';
 import { renderiza, atualizarBaralhoContagem, atualizaMeta, inicializarCartaVerso} from './Importados/interface.js';
 
-/**********************************************************************
+//import
+
+/**************************************************************************
 FUNÇÃO QUE INICIA TUDO
-************************************************************************/
+***************************************************************************/
 
 
 function iniciarJogo(): void {
