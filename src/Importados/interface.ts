@@ -1,6 +1,6 @@
 /* cSpell:disable */
 import { Carta } from './carta_baralho.js';
-import { getCartaAsset } from '../assets-loader.js';
+import { getCartaAsset, getCardBack } from '../assets-loader.js';
 
 /**********************************************************************
  FUNÇÕES E VARIÁVEIS DE INTERFACE
@@ -129,5 +129,12 @@ export function atualizajogada(nmr:number): void {
 export function atualizadescarte(nmr:number): void {
   if (descartenmr) {
     descartenmr.textContent = `${nmr}`;
+  }
+}
+
+export function inicializarCartaVerso(): void {
+  const cartaVerso = document.getElementById('carta-verso') as HTMLImageElement;
+  if (cartaVerso) {
+    cartaVerso.src = getCardBack();
   }
 }
