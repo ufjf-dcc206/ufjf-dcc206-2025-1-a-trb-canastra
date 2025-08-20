@@ -1,4 +1,4 @@
-import { menuMp3, partidaMp3 } from './assets importacao/music-assets.js';
+import { efeitoCard, menuMp3, partidaMp3 } from './assets importacao/music-assets.js';
 
 const menuMusic = new Audio(menuMp3);
 menuMusic.loop = true; 
@@ -43,7 +43,7 @@ else if (caminhoAtual.includes("partida.html")) {
 }
 
 export function efeitoCarta(): void {
-  const efeito = new Audio('./src/recursos/efeitos sonoros/efeito carta/cartasound.mp3');
+  const efeito = new Audio(efeitoCard);
   efeito.volume = 0.5;
   efeito.play();
 }
