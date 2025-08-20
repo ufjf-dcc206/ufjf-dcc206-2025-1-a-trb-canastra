@@ -4,8 +4,8 @@ import { renderiza, atualizarPontuacaoInterface, atualizaMao, atualizarBaralhoCo
    atualizaRodada, transicaoDeRodadaNormal, perdeu, 
    renderizaMesaJogada,
    atualizajogada,
-   atualizadescarte,
-   TocaMusica} from './interface.js';
+   atualizadescarte} from './interface.js';
+import { TocaMusica } from './musica.js';
 import { avaliarMao, calcularPontuacao } from './avaliador.js';
 
 /**********************************************************************
