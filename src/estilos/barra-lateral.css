@@ -5,10 +5,15 @@
   z-index: 1; /* Fica por cima de outros elementos */
   top: 0;
   left: 0;
-  background-color: #222; /* Cor de fundo escura */
+  background-color: rgb(34, 34, 34);
   padding: 1.5vw;
   color: white;
-  box-sizing: border-box; 
+  box-sizing: border-box;
+  background: url("/src/recursos/imagens/barraLateral.png") no-repeat center center;
+  background-size: cover;
+  padding: 1.5vw;
+  color: white;
+  box-sizing: border-box;
   
 }
 #topo{
@@ -30,11 +35,12 @@
 }
 
 #menu {
-  background: linear-gradient(135deg, #3498db, #2980b9);
+  background: url("/src/recursos/imagens/botao3preto.png") no-repeat center center;
+  background-size: cover;
   color: white;
-  padding: 0.8vh 0.6vw;
+  padding: 1vh 1.5vw;
   text-decoration: none;
-  font-size: 2.8vw;
+  font-size: 0.9vw;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
@@ -59,32 +65,28 @@
   overflow: hidden;
   flex-direction: column;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 100vh 13vw rgba(0, 0, 0, 0.192);
   transition: all 0.3s ease;
   border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
-#pontoMeta {
-  background: linear-gradient(135deg, #e74c3c, #c0392b);
-  
-    font-size: 2vw;
-  margin-bottom: 0.5vh;
-}
-
-#seuponto {
-  background: linear-gradient(135deg, #279eae, #229997);
-  
-    font-size: 1.5vw;
-}
+#pontoMeta, 
 #caixadescarte {
-  background: linear-gradient(135deg, #e74c3c, #c0392b);
-  font-size: 1.5vw;
+  background: url("/src/recursos/imagens/botao4vermelho.png") no-repeat center center;
+  background-size: 100% 12vh;
+  font-size: 1.2vw;
+  color: white; /* garante contraste */
+  border: none; /* remove borda extra */
 }
 
 
+#seuponto, 
 #caixamao {
-  background: linear-gradient(135deg, #3498db, #2980b9);
-  font-size: 2vw;
+  background: url("/src/recursos/imagens/botao3preto.png") no-repeat center center;
+  background-size: 100% 12vh;
+  font-size: 1.2vw;
+  color: white;
+  border: none;
 }
 
 

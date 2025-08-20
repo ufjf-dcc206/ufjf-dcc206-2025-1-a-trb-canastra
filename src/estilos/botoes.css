@@ -34,7 +34,7 @@ button, input[type="button"],a
   text-align: center;
   font-size: 1.8em;
   border-radius: 12px; /* Arredonda as bordas */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Adiciona sombra*/
+
   border: none; /* Remove todas as bordas */
   cursor: pointer; /* Mostra cursor de "mão" quando hover sobre o elemento */
   white-space: nowrap; /* Impede quebra de linha no texto */
@@ -45,15 +45,15 @@ button, input[type="button"],a
 }
 
 
-
+/*AZUL*/
 .botoes-partida:first-child {
-  background: linear-gradient(135deg, #2e92cc, #2778ae);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: url('/src/recursos/imagens/botao3preto.png') no-repeat center;
+  background-size: 100% 5vh;
 }
 
 .botoes-partida:nth-child(2) {
-  background: linear-gradient(135deg, #e74c3c, #c0392b);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: url('/src/recursos/imagens/botao4vermelho.png') no-repeat center;
+  background-size: 100% 5vh;
 }
 
 .acabou {
