@@ -31,7 +31,6 @@ function iniciarJogo(): void {
   
   inicializarEstado(baralho, mao);
   atualizaMeta(100);
-  inicializarBotoes();
   renderiza(mao);
   
 

@@ -17,8 +17,6 @@ const mesajogada = document.getElementById('mesa-jogada');
 const jogadasnmr = document.getElementById('Jogadas');
 const descartenmr = document.getElementById('Descartes');
 
-
-// Função para renderizar a mão na interface
 export function renderiza(mao: Carta[]): void {
   if (!maocarta) {
     console.error("Elemento 'Cartas' não encontrado.");
@@ -29,11 +27,11 @@ export function renderiza(mao: Carta[]): void {
       carta.setAttribute('value', `${i}`);
       const cartaImg = getCartaAsset(mao[i].valor, mao[i].naipe);
       carta.innerHTML = `<img src="${cartaImg}" alt="">`;
-      // Removed onclick since it's now handled inside the Web Component
       maocarta.appendChild(carta);
     }
   }
 }
+
 export function atualizaMao(str: string): void {
     if (valorMao) {
         valorMao.innerHTML = str;
@@ -45,29 +43,26 @@ if(contaCartas) {
     contaCartas.textContent = `${contagem}`;
   }
 }
-// Função para atualizar pontuação na interface
+
 export function atualizarPontuacaoInterface(pontos: number): void {
   if (jogador) {
     jogador.textContent = pontos.toString();
   } 
 }
 
-// Função para obter elemento da pontuação
-export function obterElementoJogador(): HTMLElement | null {
-  return jogador;
-}
-
 export function atualizaMeta(nmr:number): void {
   if (meta) {
     meta.textContent = `${nmr}`;
   }
-} 
+}
+
 export function atualizaRodada(nmr:number):void{
   if(rodada)
   {
     rodada.textContent = `${nmr}`;
   }
 }
+
 export function transicaoDeRodadaNormal(nmr: number): Promise<boolean> {
   return new Promise((resolve) => {
     const janela = document.createElement('div');
@@ -87,6 +82,7 @@ export function transicaoDeRodadaNormal(nmr: number): Promise<boolean> {
     };
   });
 }
+
 export function perdeu(nmr: number): Promise<boolean> {
   return new Promise((resolve) => {
     const janela = document.createElement('div');
@@ -120,6 +116,7 @@ export function renderizaMesaJogada(arr: Carta[]): void {
     }
   }
 }
+
 export function atualizajogada(nmr:number): void {
   if (jogadasnmr) {
     jogadasnmr.textContent = `${nmr}`;

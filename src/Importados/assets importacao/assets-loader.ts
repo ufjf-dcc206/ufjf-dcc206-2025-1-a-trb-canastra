@@ -1,8 +1,7 @@
-// Este arquivo força o Vite a incluir todas as cartas como assets
 import cardBack from '../../recursos/Cartas Grandes/card_back.png'
 import empty from '../../recursos/Cartas Grandes/empty.png'
 
-// Cartas de Copas
+
 import copa2 from '../../recursos/Cartas Grandes/2-copas.png'
 import copa3 from '../../recursos/Cartas Grandes/3-copas.png'
 import copa4 from '../../recursos/Cartas Grandes/4-copas.png'
@@ -17,7 +16,7 @@ import copaQ from '../../recursos/Cartas Grandes/Q-copas.png'
 import copaK from '../../recursos/Cartas Grandes/K-copas.png'
 import copaA from '../../recursos/Cartas Grandes/A-copas.png'
 
-// Cartas de Espadas
+
 import espada2 from '../../recursos/Cartas Grandes/2-espadas.png'
 import espada3 from '../../recursos/Cartas Grandes/3-espadas.png'
 import espada4 from '../../recursos/Cartas Grandes/4-espadas.png'
@@ -32,7 +31,7 @@ import espadaQ from '../../recursos/Cartas Grandes/Q-espadas.png'
 import espadaK from '../../recursos/Cartas Grandes/K-espadas.png'
 import espadaA from '../../recursos/Cartas Grandes/A-espadas.png'
 
-// Cartas de Ouros
+
 import ouro2 from '../../recursos/Cartas Grandes/2-ouros.png'
 import ouro3 from '../../recursos/Cartas Grandes/3-ouros.png'
 import ouro4 from '../../recursos/Cartas Grandes/4-ouros.png'
@@ -47,7 +46,7 @@ import ouroQ from '../../recursos/Cartas Grandes/Q-ouros.png'
 import ouroK from '../../recursos/Cartas Grandes/K-ouros.png'
 import ouroA from '../../recursos/Cartas Grandes/A-ouros.png'
 
-// Cartas de Paus
+
 import pau2 from '../../recursos/Cartas Grandes/2-paus.png'
 import pau3 from '../../recursos/Cartas Grandes/3-paus.png'
 import pau4 from '../../recursos/Cartas Grandes/4-paus.png'
@@ -62,11 +61,11 @@ import pauQ from '../../recursos/Cartas Grandes/Q-paus.png'
 import pauK from '../../recursos/Cartas Grandes/K-paus.png'
 import pauA from '../../recursos/Cartas Grandes/A-paus.png'
 
-// Jokers
+
 import jokerBlack from '../../recursos/Cartas Grandes/joker-black.png'
 import jokerRed from '../../recursos/Cartas Grandes/joker-red.png'
 
-// Mapa para acesso dinâmico
+
 export const cartasAssets: Record<string, string> = {
   'card_back': cardBack,
   'empty': empty,

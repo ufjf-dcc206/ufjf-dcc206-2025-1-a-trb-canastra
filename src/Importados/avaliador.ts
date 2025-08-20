@@ -5,10 +5,7 @@ import type { Naipe } from './carta_baralho.js';
  FUNÇÕES DE AVALIAÇÃO E PONTUAÇÃO DE MÃOS
 ************************************************************************/
 
-//função que vai avaliar as cartas selecionadas, contar naipes e cartas iguais ou sequenciais
-//  e retornar para a CalculaPontuação
 export function avaliarMao(selecionadas: Carta[]): { pontuacao: string, cartas: Carta[] } {  
-    // Record para transformar os valores das cartas em números para facilitar comparações
   const numeravalor: Record<string, number> = 
   { "2": 2, "3": 3, "4": 4, "5": 5,
      "6": 6, "7": 7, "8": 8, "9": 9,
@@ -16,32 +13,22 @@ export function avaliarMao(selecionadas: Carta[]): { pontuacao: string, cartas: 
      "A": 14 
   };
   
-  // Separa os valores e naipes em arrays distintos
   const valores = selecionadas.map(carta => numeravalor[carta.valor]);
   const naipes = selecionadas.map(carta => carta.naipe);
-  // Ordena os valores para facilitar a verificação de sequência
   const valoresNumericos = [...valores].sort((a, b) => a - b);
-  
-  // Conta quantas vezes cada valor aparece
+
   const contaValor: Record<number, number> = {};
   valores.forEach(v => contaValor[v] = (contaValor[v] || 0) + 1);
-  // Ordena as quantidades dos valores (maior primeiro)
+
   const valorOrdenado = Object.values(contaValor).sort((a, b) => b - a);
 
-  // Conta quantas vezes cada naipe aparece
+
   const contaNaipe: Record<Naipe, number> = { copas: 0, paus: 0, espadas: 0, ouros: 0 };
   naipes.forEach(n => contaNaipe[n]++);
-  // Ordena as quantidades dos naipes (maior primeiro)
   const ordenaNaipe = Object.values(contaNaipe).sort((a, b) => b - a);
 
-  /****************************************************************************************** 
-  Funções auxiliares usadas para verificar tipos de mão:
-  - eSequencia: verifica se os valores estão em ordem crescente (sequência)
-  - eFlush: verifica se todas as cartas são do mesmo naipe
-  *******************************************************************************************/
   function eSequencia(cartas: number[]): boolean {
     if(cartas.length < 5) return false;
-    // Verifica se todos os valores estão em ordem crescente
     for(let i = 1; i < cartas.length; i++){
       if(cartas[i] !== cartas[i-1] + 1){
         return false;
@@ -50,81 +37,65 @@ export function avaliarMao(selecionadas: Carta[]): { pontuacao: string, cartas: 
     return true;
   }
   function eFlush(cartas: number[]): boolean {
-    // Retorna true se o naipe mais repetido aparece 5 vezes
     return (cartas[0] === 5);
   }
-
-  // Verifica todas as possibilidades com 5 cartas selecionadas
   if(selecionadas.length === 5) { 
-    // Royal Flush: sequência 10, J, Q, K, A do mesmo naipe
     if (eFlush(ordenaNaipe) && 
         valoresNumericos.join(',') === '10,11,12,13,14') {
       return { pontuacao: "Royal Flush", cartas: selecionadas };
     }
 
-    // Straight Flush: sequência do mesmo naipe
     if (eFlush(ordenaNaipe) && eSequencia(valoresNumericos)) {
       return { pontuacao: "Straight Flush", cartas: selecionadas };
     }
 
-    // Flush House: todas do mesmo naipe e três de um valor, dois de outro
+
     if (eFlush(ordenaNaipe) && valorOrdenado[0] === 3 && valorOrdenado[1] === 2) {
       return { pontuacao: "Flush House", cartas: selecionadas };
     }
     
-    // Full House: três de um valor, dois de outro
+   
     if (valorOrdenado[0] === 3 && valorOrdenado[1] === 2) {
       return { pontuacao: "Full House", cartas: selecionadas };
     }
     
-    // Flush: todas do mesmo naipe
+   
     if(eFlush(ordenaNaipe)) {
       return { pontuacao: "Flush", cartas: selecionadas };
     }
-    
-    // Sequencia: valores em ordem
     if(eSequencia(valoresNumericos)) {
       return { pontuacao: "Sequencia", cartas: selecionadas };
     }
   }
 
-  // Quadra: quatro cartas do mesmo valor
   if (valorOrdenado[0] === 4) {
     const quadraValor = Object.keys(contaValor).find(v => contaValor[Number(v)] === 4);
     const cartasQuadra = selecionadas.filter(c => numeravalor[c.valor] === Number(quadraValor));
     return { pontuacao: "Quadra", cartas: cartasQuadra };
   }
 
-  // Trinca: três cartas do mesmo valor
   if (valorOrdenado[0] === 3) {
     const trincaValor = Object.keys(contaValor).find(v => contaValor[Number(v)] === 3);
     const cartastrinca = selecionadas.filter(c => numeravalor[c.valor] === Number(trincaValor));
     return { pontuacao: "Trinca", cartas: cartastrinca };
   }
 
-  // Dois Pares: dois valores aparecem duas vezes cada
   if (valorOrdenado[0] === 2 && valorOrdenado[1] === 2) {
     const pares = Object.keys(contaValor).filter(v => contaValor[Number(v)] === 2);
     const cartasDosPares = selecionadas.filter(c => pares.includes(numeravalor[c.valor].toString()));
     return { pontuacao: "Dois Pares", cartas: cartasDosPares };
   }
 
-  // Par: um valor aparece duas vezes
   if (valorOrdenado[0] === 2) {
     const parValor = Object.keys(contaValor).find(v => contaValor[Number(v)] === 2);
     const cartasdopar = selecionadas.filter(c => numeravalor[c.valor] === Number(parValor));
     return { pontuacao: "Par", cartas: cartasdopar };
   }
-
-  // Carta Alta: retorna a carta de maior valor
   const cartaAlta = selecionadas.reduce((a, b) => numeravalor[a.valor] > numeravalor[b.valor] ? a : b);
   return { pontuacao: "Carta Alta", cartas: [cartaAlta] };
 }
 
-// Função para calcular pontuação baseada na tabela oficial
 export function calcularPontuacao(tipo: string, cartas: Carta[], rodada: number): number {
-  // usei record para criar um objetivo na qual sempre vai receber uma string, no caso
-  //o tipo de mão e vai corresponder ao valor e multipicador dela no Balatro 
   const tabelaPontuacao: Record<string,number> = 
   {
     "Flush House": 14,
@@ -139,22 +110,20 @@ export function calcularPontuacao(tipo: string, cartas: Carta[], rodada: number)
     "Par":  2 , 
     "Carta Alta":  1  
   };
-  //aqui puxa o correspondente a mão recebida
   const config = tabelaPontuacao[tipo];
 
-  // Só para garantir que não é nulo
   if (config) {
      
   let somaCartas = 0;
 
   cartas.forEach(c => {
     if (["K"].includes(c.valor) || ["Q"].includes(c.valor) || ["J"].includes(c.valor)) {
-      somaCartas += 10; //substituir as figuras por valor númerico
+      somaCartas += 10;
     } else if(["A"].includes(c.valor)){
-      somaCartas+=15; //mesma coisa com os aces
+      somaCartas+=15;
     }
     else {
-      somaCartas += Number(c.valor); //aqui é so somar o numero direto
+      somaCartas += Number(c.valor);
     }
   });
   const multiplicaRodada = (rodada: number): number => {
@@ -164,13 +133,10 @@ export function calcularPontuacao(tipo: string, cartas: Carta[], rodada: number)
     }
     return multi;
   };
-  // Fórmula do balatro: multiplicador * (valor base +  soma das cartas)
+  
   const pontuacaoTotal = Math.round(config * somaCartas * multiplicaRodada(rodada));
-  //tirar dps,mas so pra ver que ta funcionando
   console.log(`${tipo}: (${config} × ${somaCartas}) x ${multiplicaRodada(rodada)} = ${pontuacaoTotal}`);
   return pontuacaoTotal;
 }
-
-  console.error(`Tipo de pontuação desconhecido: ${tipo}`);
   return 0;
 }

@@ -21,7 +21,7 @@ nos elementos pertencentes a ela
   display: flex;
   flex-flow: nowrap;
   align-items: center;
-  gap: 2vw;
+  gap: 1vw;
   font-size: 0.8vw;
   width: calc(100% - 2vh);
 }
@@ -68,8 +68,8 @@ nos elementos pertencentes a ela
   background: url("/src/recursos/imagens/botao4vermelho.png") no-repeat center center;
   background-size: 100% 12vh;
   font-size: 1.2vw;
-  color: white; /* garante contraste */
-  border: none; /* remove borda extra */
+  color: white; 
+  border: none; 
 }
 
 #seuponto, #caixamao {
