@@ -33,7 +33,7 @@
   padding: 12px 20px;
   border: none;
   border-radius: 10px;
-  cursor: pointer;
+  cursor: url('./src/recursos/imagens/meu-cursor2.png'), pointer;
   position: absolute;
   bottom: -20px;
   left: 50%;
