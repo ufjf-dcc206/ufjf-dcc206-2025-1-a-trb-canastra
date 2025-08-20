@@ -1,6 +1,6 @@
 button, input[type="button"],a
 {
-  cursor: url('/src/recursos/Imagens/meu-cursor2.png'), pointer;
+  cursor: url('src/recursos/imagens/meu-cursor2.png'), pointer;
 }
 
 .caixabotoes {
@@ -17,7 +17,7 @@ button, input[type="button"],a
   display: inline-block;
   width: min(300px, 28vw);
   height: min(150px, 24vh);
-  background: url(/src/recursos/imagens/botao.png) no-repeat center;
+  background: url(../recursos/imagens/botao.png) no-repeat center;
   background-size: 100% 100%;
   color: white;
   text-align: center;

@@ -6,7 +6,7 @@
 
 @font-face {
   font-family: 'Alagard';
-  src: url(recursos/Fontes/Alagard.ttf);
+  src: url(recursos/Fontes/alagard.ttf);
 }
 /**********************************************************************
   ESTILO GERAIS
@@ -28,7 +28,7 @@ html, body {
   width: 100%;
   margin: 0;
   padding: 0;
-  cursor: url('src/recursos/Imagens/meu-cursor1.png'), pointer;
+  cursor: url('src/recursos/imagens/meu-cursor1.png'), pointer;
 }
 
 h1#valor-mao {
@@ -131,9 +131,9 @@ Interface
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: calc(100% - 25vh);
+  width: calc(100% - 13vw);
   height: 100vh;
-  margin-left: 25vh;
+  margin-left: 13vw;
   position: relative;
 }
 #Mao {

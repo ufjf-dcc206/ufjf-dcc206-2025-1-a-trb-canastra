@@ -1,5 +1,6 @@
 /* cSpell:disable */
 import { Carta } from './carta_baralho.js';
+import { getCartaAsset } from '../assets-loader.js';
 
 /**********************************************************************
  FUNÇÕES E VARIÁVEIS DE INTERFACE
@@ -26,7 +27,8 @@ export function renderiza(mao: Carta[]): void {
     for (let i = 0; i < mao.length; i++) {
       const carta = document.createElement('carta-component');
       carta.setAttribute('value', `${i}`);
-      carta.innerHTML = `<img src="src/recursos/Cartas Grandes/${mao[i].valor}-${mao[i].naipe}.png" alt="">`;
+      const cartaImg = getCartaAsset(mao[i].valor, mao[i].naipe);
+      carta.innerHTML = `<img src="${cartaImg}" alt="">`;
       // Removed onclick since it's now handled inside the Web Component
       maocarta.appendChild(carta);
     }
@@ -112,7 +114,8 @@ export function renderizaMesaJogada(arr: Carta[]): void {
     mesajogada.innerHTML = ' ';
     for (let i = 0; i < arr.length; i++) {
       const carta = document.createElement('div');
-      carta.innerHTML = `<img src="src/recursos/Cartas Grandes/${arr[i].valor}-${arr[i].naipe}.png" alt="">`;
+      const cartaImg = getCartaAsset(arr[i].valor, arr[i].naipe);
+      carta.innerHTML = `<img src="${cartaImg}" alt="">`;
       mesajogada.appendChild(carta);
     }
   }
