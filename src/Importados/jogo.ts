@@ -4,7 +4,8 @@ import { renderiza, atualizarPontuacaoInterface, atualizaMao, atualizarBaralhoCo
    atualizaRodada, transicaoDeRodadaNormal, perdeu, 
    renderizaMesaJogada,
    atualizajogada,
-   atualizadescarte} from './interface.js';
+   atualizadescarte,
+   TocaMusica} from './interface.js';
 import { avaliarMao, calcularPontuacao } from './avaliador.js';
 
 /**********************************************************************
@@ -60,6 +61,7 @@ export function Monitoramento(): void {
   inicializarBotoes();
   // Atualiza constantemente as cartas selecionadas e da o valor da mão
   setInterval(() => {
+    TocaMusica();
     atualizarBaralhoContagem(baralho.length);
     const selecionadas = cartasSelecionadas(mao);
     if (selecionadas.length > 0) {  
