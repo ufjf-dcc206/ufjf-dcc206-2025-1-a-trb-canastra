@@ -1,4 +1,3 @@
-//definindo os "tipos" de naipes e valores de carta que podem ter com |
 export type Naipe = "copas" | "paus" | "espadas" | "ouros";
 
 export type Valor = "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "J" | "Q" | "K" | "A";
@@ -29,17 +28,13 @@ export function criarBaralho() {
 }
 
 export function embaralhar(baralho: Carta[]): Carta[] {
-   //copiando so para ter controle do normal x embaralhado(mexer dps)
   for (let i = baralho.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    /* a math random pega numero 
-    de 0 a 1 e multiplica pelo indice + 1 e
-     em seguida esse numero é arredondado para o
-    inteiro mais proximo pela math.flor*/
     [baralho[i], baralho[j]] = [baralho[j], baralho[i]];
   }
   return baralho;
 }
+
 /**********************************************************************
  FUNÇÔES SOBRE MANIPULAÇÂO DE CARTA
 ************************************************************************/
@@ -60,7 +55,7 @@ export function cartasSelecionadas(mao: Carta[]): Carta[] {
     const indiceStr = cartasselec[i].getAttribute("value");
     if (indiceStr !== null) {
       const indice = Number(indiceStr);
-      if (!isNaN(indice) && mao[indice]) { //checa que o indice é de fato um numero e se existe valor naquele indice.
+      if (!isNaN(indice) && mao[indice]) { 
         selecionadas.push(mao[indice]);
       }
     }

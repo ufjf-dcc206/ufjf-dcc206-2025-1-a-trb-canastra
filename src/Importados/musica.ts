@@ -1,18 +1,14 @@
 import { menuMp3, partidaMp3 } from './assets importacao/music-assets.js';
 
 const menuMusic = new Audio(menuMp3);
-menuMusic.loop = true; // Coloca a música em loop
+menuMusic.loop = true; 
 menuMusic.volume = 0.5;
-menuMusic.autoplay = true; // Ajusta o volume da música do menu
+menuMusic.autoplay = true; 
 
 const partidaMusic = new Audio(partidaMp3);
-partidaMusic.loop = true; // Coloca a música da partida em loop
+partidaMusic.loop = true; 
 partidaMusic.volume = 0.5;
-partidaMusic.autoplay = true; // Ajusta o volume da música da partida
-
-
-
-//Música para meus ouvidos
+partidaMusic.autoplay = true; 
 
 function tocarMenu(): void {
   partidaMusic.currentTime = 0;
