@@ -76,14 +76,10 @@ export function jogacarta() {
   
   const selecionadas = cartasSelecionadas(mao);
   const resultado = avaliarMao(selecionadas);
-
-  // Calcula pontuação usando a nova tabela
   const pontuacaoGanha = calcularPontuacao(resultado.pontuacao, resultado.cartas,rodada);
   
   pontos += pontuacaoGanha;
   atualizarPontuacaoInterface(pontos);
-
-  // Descarta todas as cartas selecionadas
   descarta();
 }
 
