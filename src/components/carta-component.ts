@@ -40,7 +40,7 @@ class CartaComponent extends HTMLElement {
         style.textContent = `
             .carta {
             display: inline-block;
-            cursor: pointer;
+            cursor: url('./recursos/imagens/meu-cursor1.png') pointer;
             transition: all 0.3s ease;
             position: relative;
             

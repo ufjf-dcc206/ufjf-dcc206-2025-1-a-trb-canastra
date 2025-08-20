@@ -1,6 +1,6 @@
 button, input[type="button"],a
 {
-  cursor: url('src/recursos/imagens/meu-cursor2.png'), pointer;
+  cursor: url('./src/recursos/imagens/meu-cursor2.png'), pointer;
 }
 
 .caixabotoes {
