@@ -2,12 +2,12 @@ import { menuMp3, partidaMp3 } from './assets importacao/music-assets.js';
 
 const menuMusic = new Audio(menuMp3);
 menuMusic.loop = true; 
-menuMusic.volume = 0.5;
+menuMusic.volume = 0.3;
 menuMusic.autoplay = true; 
 
 const partidaMusic = new Audio(partidaMp3);
 partidaMusic.loop = true; 
-partidaMusic.volume = 0.5;
+partidaMusic.volume = 0.3;
 partidaMusic.autoplay = true; 
 
 function tocarMenu(): void {
@@ -40,4 +40,10 @@ else if (caminhoAtual.includes("partida.html")) {
    pararMusicas("menu");
   tocarPartida();
 }
+}
+
+export function efeitoCarta(): void {
+  const efeito = new Audio('./src/recursos/efeitos sonoros/efeito carta/cartasound.mp3');
+  efeito.volume = 0.5;
+  efeito.play();
 }

@@ -5,7 +5,7 @@ import { renderiza, atualizarPontuacaoInterface, atualizaMao, atualizarBaralhoCo
    renderizaMesaJogada,
    atualizajogada,
    atualizadescarte} from './interface.js';
-import { TocaMusica } from './musica.js';
+import { efeitoCarta, TocaMusica } from './musica.js';
 import { avaliarMao, calcularPontuacao } from './avaliador.js';
 
 /**********************************************************************
@@ -38,6 +38,7 @@ export function inicializarBotoes(): void {
       const selecionadas = cartasSelecionadas(mao);
       if(nmrJogadas > 0 && selecionadas.length > 0){
         jogacarta();
+        efeitoCarta();
         nmrJogadas-=1;
         atualizajogada(nmrJogadas)
         verificaPontoMeta();
@@ -47,6 +48,7 @@ export function inicializarBotoes(): void {
       const selecionadas = cartasSelecionadas(mao);
       if(nmrDescartes > 0 && selecionadas.length > 0){
         descarta();
+        efeitoCarta();
         nmrDescartes-=1;
         atualizadescarte(nmrDescartes);
       }
