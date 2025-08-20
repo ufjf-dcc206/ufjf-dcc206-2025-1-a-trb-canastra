@@ -8,7 +8,7 @@ import "./components/carta-component"; //Importa o componente de carta
 import "./assets-loader.js"; // Forçar carregamento dos assets das cartas
 import { criarBaralho, pegarCarta } from './Importados/carta_baralho.js';
 import { inicializarEstado, Monitoramento, inicializarBotoes } from './Importados/jogo.js';
-import { renderiza, atualizarBaralhoContagem, atualizaMeta, inicializarCartaVerso, tocarPartida} from './Importados/interface.js';
+import { renderiza, atualizarBaralhoContagem, atualizaMeta, inicializarCartaVerso, tocarPartida, tocarMenu, pararMusicas} from './Importados/interface.js';
 
 
 /**********************************************************************
@@ -19,6 +19,28 @@ import { renderiza, atualizarBaralhoContagem, atualizaMeta, inicializarCartaVers
 /**********************************************************************
 FUNÇÃO QUE INICIA TUDO
 ************************************************************************/
+const caminhoAtual= window.location.pathname;
+if (caminhoAtual.includes("index.html")) {
+  // Se estiver na página inicial, toca a música de fundo
+  console.log("o usuário está na página inicial, tocando música de fundo");
+  pararMusicas(); // Para qualquer música que esteja tocando antes de iniciar o menu
+  tocarMenu();
+}
+else if (caminhoAtual.includes("tutorial.html")) {
+  // Se estiver na página de tutorial, toca a música de fundo
+  console.log("o usuário está na página de tutorial, tocando música de fundo");
+  tocarMenu();
+}
+else if (caminhoAtual.includes("partida.html")) {
+  // Se estiver na página de partida, toca a música de fundo
+  console.log("o usuário está na página de partida, tocando música de fundo");
+  pararMusicas(); // Para qualquer música que esteja tocando antes de iniciar a partida
+  tocarPartida();
+} else {
+  // Se não estiver em nenhuma das páginas esperadas, não faz nada
+  console.log("o usuário não está em uma página válida, não tocando música de fundo");
+}
+
 function iniciarJogo(): void {
   // Cria o baralho e distribui cartas
   const baralho = criarBaralho();
@@ -48,5 +70,5 @@ function iniciarJogo(): void {
 }
 //inicia o jogo
 iniciarJogo();
-tocarPartida();
+
 

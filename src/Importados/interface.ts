@@ -151,13 +151,11 @@ partidaMusic.loop = true; // Coloca a música da partida em loop
 partidaMusic.volume = 0.5; // Ajusta o volume da música da partida
 
 export function tocarMenu(): void {
-  partidaMusic.pause();
   partidaMusic.currentTime = 0;
   menuMusic.play();
 }
 
 export function tocarPartida(): void {
-  menuMusic.pause();
   menuMusic.currentTime = 0;
   partidaMusic.play();
 }
