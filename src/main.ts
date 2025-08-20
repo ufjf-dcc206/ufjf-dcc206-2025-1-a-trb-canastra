@@ -7,7 +7,7 @@ import "./components/carta-component"; //Importa o componente de carta
 import "./assets-loader.js"; // Forçar carregamento dos assets das cartas
 import { criarBaralho, pegarCarta } from './Importados/carta_baralho.js';
 import { inicializarEstado, Monitoramento, inicializarBotoes } from './Importados/jogo.js';
-import { renderiza, atualizarBaralhoContagem, atualizaMeta, inicializarCartaVerso} from './Importados/interface.js';
+import { renderiza, atualizarBaralhoContagem, atualizaMeta, inicializarCartaVerso, tocarPartida} from './Importados/interface.js';
 
 
 /**********************************************************************
@@ -47,4 +47,5 @@ function iniciarJogo(): void {
 }
 //inicia o jogo
 iniciarJogo();
+tocarPartida();
 
