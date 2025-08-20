@@ -3,6 +3,7 @@ import "./style.css"; //Pra usar os estilos de forma global
 import "./estilos/barra-lateral.css"
 import "./estilos/botoes.css"
 import "./estilos/modal.css"
+import "./estilos/interface.css";
 import "./components/carta-component"; //Importa o componente de carta
 import "./assets-loader.js"; // Forçar carregamento dos assets das cartas
 import { criarBaralho, pegarCarta } from './Importados/carta_baralho.js';

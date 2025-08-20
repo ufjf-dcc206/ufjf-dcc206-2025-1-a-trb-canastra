@@ -1,3 +1,9 @@
+/*********************************
+Toda da estilização necessária pra criar a 
+janela flutuante(modal) para avisar se o jogador
+perdeu a rodada
+*********************************/
+
 #transicao {
   position: fixed;
   top: 0;
@@ -28,12 +34,14 @@
   font-size: 2vw;
 }
 #botaoModal {
-  background: linear-gradient(135deg, #3498db, #2980b9);
+  background: url("/src/recursos/imagens/botao3preto.png") no-repeat center center;
   color: rgb(255, 255, 255);
-  padding: 12px 20px;
+  background-size: 100% 100%;
+  width: 310px;
+  height: 60px;
   border: none;
   border-radius: 10px;
-  cursor: pointer;
+  cursor: url('./src/recursos/imagens/meu-cursorCLICK.png'), pointer;
   position: absolute;
   bottom: -20px;
   left: 50%;
@@ -42,5 +50,6 @@
 }
 
 #botaoModal:hover {
-  background: linear-gradient(135deg, #2980b9, #3498db);
+  filter: brightness(1.2);
+  transform: translateX(-50%) scale(1.05); 
 }

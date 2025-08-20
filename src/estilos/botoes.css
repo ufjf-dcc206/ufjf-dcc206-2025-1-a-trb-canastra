@@ -1,6 +1,11 @@
+/*****************************************************************
+Arquivo destinado a tudo que envolvem os botoes/links 
+em relação a estilo
+*****************************************************************/
+
 button, input[type="button"],a
 {
-  cursor: url('./src/recursos/imagens/meu-cursor2.png'), pointer;
+  cursor: url('./src/recursos/imagens/meu-cursorCLICK.png'), pointer;
 }
 
 .caixabotoes {
@@ -17,12 +22,12 @@ button, input[type="button"],a
   display: inline-block;
   width: min(300px, 28vw);
   height: min(150px, 24vh);
-  background: url(../recursos/imagens/botao.png) no-repeat center;
-  background-size: 100% 100%;
+  background: url(/src/recursos/imagens/botao.png) no-repeat center;
+  background-size: 90% 71%;
   color: white;
   text-align: center;
   text-decoration: none;
-  font-size: min(3vw, 48px);
+  font-size: min(2.5vw, 48px);
   line-height: min(150px, 24vh);
   white-space: nowrap;
   border: none;
@@ -56,3 +61,16 @@ button, input[type="button"],a
 .acabou {
   cursor: not-allowed;
 }
+
+.botao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20vw;
+    height: 14vh;
+    background: url(/src/recursos/imagens/botao2.png) no-repeat center;
+    background-size: 100% 100%;
+    color: white;
+    text-decoration: none;
+    font-size: 3.5vw;
+  }
