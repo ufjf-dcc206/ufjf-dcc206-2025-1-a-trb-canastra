@@ -4,6 +4,7 @@ import "./estilos/barra-lateral.css"
 import "./estilos/botoes.css"
 import "./estilos/modal.css"
 import "./components/carta-component"; //Importa o componente de carta
+import "./assets-loader.js"; // Forçar carregamento dos assets das cartas
 import { criarBaralho, pegarCarta } from './Importados/carta_baralho.js';
 import { inicializarEstado, Monitoramento, inicializarBotoes } from './Importados/jogo.js';
 import { renderiza, atualizarBaralhoContagem, atualizaMeta, inicializarCartaVerso} from './Importados/interface.js';
@@ -18,12 +19,17 @@ import { renderiza, atualizarBaralhoContagem, atualizaMeta, inicializarCartaVers
 FUNÇÃO QUE INICIA TUDO
 ************************************************************************/
 function iniciarJogo(): void {
-  // Inicializar a carta do verso no baralho
-  inicializarCartaVerso();
-  
   // Cria o baralho e distribui cartas
   const baralho = criarBaralho();
   const mao = pegarCarta(baralho, 8);
+  
+  // Inicializa o estado do jogo
+  inicializarEstado(baralho, mao);
+  atualizaMeta(100);
+  inicializarBotoes();
+  
+  // Inicializar a carta do verso no baralho
+  inicializarCartaVerso();
   
   // Inicializa o estado do jogo
   inicializarEstado(baralho, mao);
