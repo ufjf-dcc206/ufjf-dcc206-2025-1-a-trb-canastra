@@ -13,33 +13,6 @@ var _a, _b;
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./style.css"); //Pra usar os estilos de forma global
 
-//Música para meus ouvidos
-const menuMusic = new Audio('src/recursos/efeitos sonoros/musicas/menu.mp3');
-menuMusic.loop = true; // Coloca a música em loop
-menuMusic.volume = 0.5; // Ajusta o volume da música do menu
-
-const partidaMusic = new Audio('src/recursos/efeitos sonoros/musicas/partida.mp3');
-partidaMusic.loop = true; // Coloca a música da partida em loop
-partidaMusic.volume = 0.5; // Ajusta o volume da música da partida
-
-function tocarMenu() {
-    partidaMusic.pause();
-    partidaMusic.currentTime = 0;
-    menuMusic.play();
-}
-
-function tocarPartida() {
-    menuMusic.pause();
-    menuMusic.currentTime = 0;
-    partidaMusic.play();
-}
-
-function pararMusicas() {
-    menuMusic.pause();
-    partidaMusic.pause();
-    menuMusic.currentTime = 0;
-    partidaMusic.currentTime = 0;
-}
 
 var maocarta = document.getElementById('Cartas');
 //const objetivo = document.getElementById('pontoMeta');

@@ -29,31 +29,28 @@ button, input[type="button"],a
 }
 
 .botoes-partida {
-  color: white; 
-  padding: 1.5vh 2vh;
-  text-align: center;
-  font-size: 1.8em;
-  border-radius: 12px; /* Arredonda as bordas */
-
-  border: none; /* Remove todas as bordas */
-  cursor: pointer; /* Mostra cursor de "mão" quando hover sobre o elemento */
-  white-space: nowrap; /* Impede quebra de linha no texto */
-  flex: auto; /* Faz o elemento crescer/diminuir para ocupar espaço disponível no container flex */
-  max-width: 180px; /* Define largura máxima de 180px */
-  min-width: 120px; /* Define largura mínima de 120px */
-  text-transform: uppercase; /* Transforma todo o texto em maiúsculas */
+     color: white;
+    padding: 2vh 2vh;
+    text-align: center;
+    font-size: 1.8vw;
+    border: none;
+    white-space: nowrap;
+    flex: auto;
+    max-width: 16vw;
+    min-width: 10vw;
+    text-transform: uppercase;
 }
 
 
-/*AZUL*/
+
 .botoes-partida:first-child {
   background: url('/src/recursos/imagens/botao3preto.png') no-repeat center;
-  background-size: 100% 5vh;
+  background-size: 100% 8vh;
 }
 
 .botoes-partida:nth-child(2) {
   background: url('/src/recursos/imagens/botao4vermelho.png') no-repeat center;
-  background-size: 100% 5vh;
+  background-size: 100% 8vh;
 }
 
 .acabou {
