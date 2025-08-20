@@ -1,40 +1,39 @@
-// Define a custom HTML element called 'carta-component'
+/***********************************************
+ Cria a div que vai conter a carta como um componente customizado
+para facilitar os estilos e definições que cada carta 
+deve ter ao  cria-las dinamicamente no typescript
+Além disso, inclui a lógica para selecionar e manipular as cartas
+*************************************************/
+
 class CartaComponent extends HTMLElement {
     constructor() {
         super();
-        // Cria o shadow DOM e declara como aberto
         this.attachShadow({ mode: 'open' });
     }
-
-    // Método chamado automaticamente quando o elemento é adicionado ao DOM para iniciar o build
     connectedCallback() {
         this.build();
     }
 
     // Constrói o conteúdo e estilos do componente
     build() {
-        // Cria o container principal como uma div com a classe 'carta'
         const carta = document.createElement('div');
         carta.classList.add('carta');
 
-        // Copia os filhos do elemento original para a shadow DOM, no caso esta pegando o <img> criado no interface.ts
+        // Clona todos os nós filhos do componente para dentro da carta
         Array.from(this.childNodes).forEach(node => {
             carta.appendChild(node.cloneNode(true));
         });
         const style = this.styles();
         
-        // Adiciona os estilos e o container principal à shadow DOM
         if (this.shadowRoot) {
             this.shadowRoot.appendChild(style);
             this.shadowRoot.appendChild(carta);
         }
 
-        // Adiciona um listener para o evento de clique na carta
         carta.addEventListener('click', () => {
             this.selecionar();
         });
     }
-    // Adiciona estilos CSS específicos para o componente
         styles (){
             const style = document.createElement('style');
         style.textContent = `
@@ -88,9 +87,12 @@ class CartaComponent extends HTMLElement {
         `;
         return style
         }
-    // Lida com o clique na carta
+
+    /**********************************
+ *   Método para selecionar a carta
+    *********************************/    
     selecionar() {
-        // Verifica quantas cartas estão selecionadas globalmente (no documento)
+     
         const cartasSelecionadas = document.querySelectorAll('carta-component.selecionada');
         
         // Se já houver 5 cartas selecionadas e esta não estiver selecionada, faz animação de negação
@@ -104,7 +106,7 @@ class CartaComponent extends HTMLElement {
             
         }else{
 
-        // Alterna o estado de seleção da carta (selecionada/não selecionada)
+        // Alterna o estado de seleção
         this.classList.toggle('selecionada');
         
         // Sincroniza o estado visual da carta interna com a seleção do componente.
@@ -120,5 +122,4 @@ class CartaComponent extends HTMLElement {
     }
 }
 
-// Registra o novo elemento customizado no navegador
 customElements.define('carta-component', CartaComponent);

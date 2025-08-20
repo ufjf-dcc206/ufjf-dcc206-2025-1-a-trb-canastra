@@ -37,29 +37,22 @@ export function inicializarBotoes(): void {
     //faz os botões chamarem as funções correspondentes
     botjoga?.addEventListener('click', ()=>{
       const selecionadas = cartasSelecionadas(mao);
-      if(!(botjoga.classList.contains('acabou')) && selecionadas.length > 0){
+      if(nmrJogadas > 0 && selecionadas.length > 0){
         jogacarta();
         nmrJogadas-=1;
         atualizajogada(nmrJogadas)
         verificaPontoMeta();
-        atualizarEstadoBotoes();
       }
     });
     botdesca?.addEventListener('click', () => {
       const selecionadas = cartasSelecionadas(mao);
-      if(!(botdesca.classList.contains('acabou')) && selecionadas.length > 0){
+      if(nmrDescartes > 0 && selecionadas.length > 0){
         descarta();
         nmrDescartes-=1;
         atualizadescarte(nmrDescartes);
-        atualizarEstadoBotoes();
       }
     });
   }
-}
-
-function atualizarEstadoBotoes(): void {
-  nmrDescartes > 0 ? botdesca?.classList.remove('acabou') : botdesca?.classList.add('acabou');
-  nmrJogadas > 0 ? botjoga?.classList.remove('acabou') : botjoga?.classList.add('acabou');
 }
 
 // Função para iniciar o monitoramento das cartas selecionadas
@@ -67,7 +60,6 @@ export function Monitoramento(): void {
   inicializarBotoes();
   // Atualiza constantemente as cartas selecionadas e da o valor da mão
   setInterval(() => {
-    atualizarEstadoBotoes();
     atualizarBaralhoContagem(baralho.length);
     const selecionadas = cartasSelecionadas(mao);
     if (selecionadas.length > 0) {  

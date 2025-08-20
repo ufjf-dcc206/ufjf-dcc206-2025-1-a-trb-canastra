@@ -1,3 +1,9 @@
+/*********************************
+Toda da estilização necessária pra criar a 
+janela flutuante(modal) para avisar se o jogador
+perdeu ou ganhou a rodada
+*********************************/
+
 #transicao {
   position: fixed;
   top: 0;

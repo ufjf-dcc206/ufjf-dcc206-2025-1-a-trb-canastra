@@ -1,3 +1,8 @@
+/*****************************************************************
+Arquivo destinado a tudo que envolvem os botoes/links 
+em relação a estilo
+*****************************************************************/
+
 button, input[type="button"],a
 {
   cursor: url('./src/recursos/imagens/meu-cursorCLICK.png'), pointer;
@@ -56,3 +61,16 @@ button, input[type="button"],a
 .acabou {
   cursor: not-allowed;
 }
+
+.botao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20vw;
+    height: 14vh;
+    background: url(/src/recursos/imagens/botao2.png) no-repeat center;
+    background-size: 100% 100%;
+    color: white;
+    text-decoration: none;
+    font-size: 3.5vw;
+  }

@@ -1,29 +1,29 @@
+/**********************************************
+Arquivo da estilização completa da barra lateral
+no partida.html, com todas divs e classes usadadas
+nos elementos pertencentes a ela
+**********************************************/
+
 #menu-container {
   height: 100vh;
   width: 13vw;
-  position: fixed; /* Fica fixo na tela */
-  z-index: 1; /* Fica por cima de outros elementos */
+  position: fixed; 
+  z-index: 1; 
   top: 0;
   left: 0;
-  background-color: rgb(34, 34, 34);
   padding: 1.5vw;
   color: white;
-  box-sizing: border-box;
-  background: url("/src/recursos/imagens/barraLateral.png") no-repeat center center;
+  background: url("/src/recursos/imagens/barraLateral.png") no-repeat center;
   background-size: cover;
-  padding: 1.5vw;
-  color: white;
-  box-sizing: border-box;
-  
 }
 #topo{
   position: absolute;
-    display: flex;
-    flex-flow: nowrap;
-    align-items: center;
-    gap: 2vw;
-    font-size: 0.8vw;
-    width: calc(100% - 2vh);
+  display: flex;
+  flex-flow: nowrap;
+  align-items: center;
+  gap: 2vw;
+  font-size: 0.8vw;
+  width: calc(100% - 2vh);
 }
 #topo>a{
   font-size: 1.7vw;
@@ -35,22 +35,18 @@
 }
 
 #menu {
-  background: url("/src/recursos/imagens/botao3preto.png") no-repeat center center;
+  background: url("/src/recursos/imagens/botao3preto.png") no-repeat center;
   background-size: cover;
   color: white;
   padding: 1vh 1.5vw;
   text-decoration: none;
-  font-size: 0.9vw;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
   white-space: nowrap;
 }
 #rodada{
-    top: 2vh;
-    font-size: 3vw;
-    right: 5vh;
-
+  font-size: 3vw;
 }
 .caixa{
   color: #fff;
@@ -65,13 +61,10 @@
   overflow: hidden;
   flex-direction: column;
   justify-content: center;
-  box-shadow: 0 100vh 13vw rgba(0, 0, 0, 0.192);
   transition: all 0.3s ease;
-  border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
-#pontoMeta, 
-#caixadescarte {
+#pontoMeta, #caixadescarte {
   background: url("/src/recursos/imagens/botao4vermelho.png") no-repeat center center;
   background-size: 100% 12vh;
   font-size: 1.2vw;
@@ -79,9 +72,7 @@
   border: none; /* remove borda extra */
 }
 
-
-#seuponto, 
-#caixamao {
+#seuponto, #caixamao {
   background: url("/src/recursos/imagens/botao3preto.png") no-repeat center center;
   background-size: 100% 12vh;
   font-size: 1.2vw;
@@ -89,22 +80,20 @@
   border: none;
 }
 
-
 #CaixaMaoDescarta {
-  
-      display: flex;
-    position: absolute;
-    flex-direction: column;
-    bottom: 5vh;
-    gap: 1vh;
-    width: 100%;
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  bottom: 5vh;
+  gap: 1vh;
+  width: 100%;
 }
 
 #CaixaMetaPontos {
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-    gap: 1vh;
-    width: 100%;
-    top: 9vh;
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  gap: 1vh;
+  width: 100%;
+  top: 9vh;
 }
