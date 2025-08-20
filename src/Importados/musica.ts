@@ -1,4 +1,4 @@
-import { menuMp3, partidaMp3 } from '../music-assets.js';
+import { menuMp3, partidaMp3 } from './assets importacao/music-assets.js';
 
 const menuMusic = new Audio(menuMp3);
 menuMusic.loop = true; // Coloca a música em loop

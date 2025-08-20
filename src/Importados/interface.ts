@@ -1,6 +1,6 @@
 /* cSpell:disable */
 import { Carta } from './carta_baralho.js';
-import { getCartaAsset, getCardBack } from '../assets-loader.js';
+import { getCartaAsset, getCardBack } from './assets importacao/assets-loader.js';
 
 /**********************************************************************
  FUNÇÕES E VARIÁVEIS DE INTERFACE
