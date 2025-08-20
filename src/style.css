@@ -38,14 +38,14 @@ h1#valor-mao {
 }
 
 img {
-  height: 15vmin; /* Define altura como 12% da menor dimensão da viewport */
-  width: 15vmin; /* Define largura como 12% da menor dimensão da viewport */
-  image-rendering: crisp-edges; /* Renderização nítida para imagens pixeladas (webkit) */
-  image-rendering: pixelated; /* Renderização pixelada para preservar pixels (padrão) */
-  max-height: 192px; /* Altura máxima de 192 pixels */
-  max-width: 192px; /* Largura máxima de 192 pixels */
-  min-height: 128px; /* Altura mínima de 128 pixels */
-  min-width: 128px; /* Largura mínima de 128 pixels */
+  height: 15vmin;
+  width: 15vmin;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  max-height: 192px;
+  max-width: 192px;
+  min-height: 128px;
+  min-width: 128px;
 }
 table {
   text-align: center;
